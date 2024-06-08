@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <div class="bg-azulOscuro text-white items-center pl-4 py-2 rounded-s text-2xl">
+  <p class="bg-gray-800 text-white px-4 py-2 rounded-lg text-lg w-fit">
     <slot/>
-  </div>
+  </p>
 </template>
 
 <style scoped>

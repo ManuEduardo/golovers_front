@@ -4,7 +4,7 @@
 
 <template>
 
-  <button class="bg-verdeAgua hover:bg-blue-700 px-4 py-2 rounded-full shadow"><slot/></button>
+  <button class="bg-gray-blue px-4 py-2 rounded-full shadow"><slot/></button>
 
 </template>
 
