@@ -24,7 +24,8 @@ export default {
             colors: {
                 "primary": "#ecf4f9",
                 "coral": "#fd7f7d",
-                "verdeAgua" : "#9ec8d1"
+                "verdeAgua" : "#9ec8d1",
+                "grayPanel" : "#f8f6f6"
             }
         },
     },
