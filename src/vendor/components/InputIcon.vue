@@ -21,7 +21,7 @@ defineExpose({
 
 <template>
   <div class="">
-    <label :for="id" class="text-sm font-bold">
+    <label :for="id" class="text-sm font-bold mb-3 block">
       {{ title }}
     </label>
     <div class="relative px-4 flex items-center border border-gray-600 hover:border-indigo-700 rounded-md">

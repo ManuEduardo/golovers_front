@@ -1,9 +1,11 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Login from '@/pages/login.vue'
+import {useAuthStore} from "@/stores/AuthStore";
 
 const AuthLayout = () => import("@/layouts/AuthLayout.vue")
-const Home = () => import("@/pages/home.vue")
-const Test = ()=>import("@/pages/test.vue")
+const Groups = () => import("@/pages/groups/index.vue")
+const Test = () => import("@/pages/test.vue")
+const Announcements = () => import("@/pages/announcements/index.vue")
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,24 +32,35 @@ const router = createRouter({
             },
             children: [
                 {
-                    path: '/inicio',
-                    name: 'home',
-                    component: Home,
+                    path: '/grupos',
+                    name: 'groups',
+                    meta: {
+                        title: 'GRUPOS'
+                    },
+                    component: Groups,
                 }
             ]
         },
+        {
+            path:'/anuncios',
+            name:'announcements',
+            component: Announcements,
+            meta: {
+                requiresAuth: true
+            },
+        }
     ]
 })
 
 router.beforeEach((to, from, next) => {
-    const auth = false
+    const {isAuth} = useAuthStore()
     if (to.matched[0].name === 'login') {
-        if (auth) {
-            next({name: 'home'})
+        if (isAuth) {
+            next({name: 'groups'})
         } else {
             next()
         }
-    } else if (to.matched.some(record => record.meta.requiresAuth) && !auth) {
+    } else if (to.matched.some(record => record.meta.requiresAuth) && !isAuth) {
         next({name: 'login'})
     } else {
         next()

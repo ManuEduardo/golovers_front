@@ -8,6 +8,7 @@ defineOptions({
 defineProps({
   // add @ts-ignore if using TypeScript
   ...RouterLink.props,
+  inactiveClass:String
 })
 
 </script>
@@ -21,9 +22,9 @@ defineProps({
         v-bind="$attrs"
         :href="href"
         @click="navigate"
-        :class="isActive && activeClass"
+        :class="isActive ? activeClass : inactiveClass"
     >
-      <slot/>
+      <slot />
     </a>
   </router-link>
 </template>

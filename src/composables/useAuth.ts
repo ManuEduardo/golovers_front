@@ -4,7 +4,7 @@ import {storeToRefs} from "pinia";
 
 export default () => {
     const {login, logout, ...store} = useAuthStore()
-    const {auth, token} = storeToRefs(store)
+    const {authUser, token} = storeToRefs(store)
     const {formLogin, validate, errors, noErrors} = useFormLogin()
 
     const submitLoginForm = async () => {
@@ -20,7 +20,7 @@ export default () => {
     return {
         formLogin,
         errors,
-        auth,
+        authUser,
         token,
         submitLoginForm,
         handleLogout,

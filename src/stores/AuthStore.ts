@@ -5,11 +5,13 @@ import {UserI, type UserM} from "@/models/user";
 
 export const useAuthStore = defineStore('auth', () => {
     const router = useRouter()
-    const auth = ref({...UserI})
+    const authUser = ref({...UserI})
+    const isAuth = ref(false)
     const token = ref(null)
 
     const login = async (form: UserM) => {
-        await router.push({name: 'home'})
+        isAuth.value = true
+        await router.push({name: 'groups'})
     }
 
     const logout = async () => {
@@ -18,7 +20,8 @@ export const useAuthStore = defineStore('auth', () => {
 
     return {
         token,
-        auth,
+        authUser,
+        isAuth,
         login,
         logout
     }

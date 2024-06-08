@@ -6,8 +6,8 @@ export default {
     ],
     theme: {
         extend: {
-            screens:{
-              "mdl": "900px"
+            screens: {
+                "mdl": "900px"
             },
             width: {
                 "144": '36rem',
@@ -22,6 +22,9 @@ export default {
                 "100": '25rem',
             },
             colors: {
+                "main": "#388a9d",
+                "cyan": "#56D5F1",
+                "gray-blue": "#9ec8d2",
                 "primary": "#ecf4f9",
                 "coral": "#fd7f7d",
                 "verdeAgua" : "#9ec8d1",
