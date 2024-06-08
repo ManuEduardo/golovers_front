@@ -26,7 +26,8 @@ export default {
                 "cyan": "#56D5F1",
                 "gray-blue": "#9ec8d2",
                 "primary": "#ecf4f9",
-                "coral": "#fd7f7d"
+                "coral": "#fd7f7d",
+                "verdeAgua" : "#9ec8d1"
             }
         },
     },

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {ref} from "vue";
+import ButtonRounded from "@/components/ButtonRounded.vue";
 
 const model = defineModel()
 
@@ -21,10 +22,10 @@ defineExpose({
 
 <template>
   <div class="">
-    <label :for="id" class="text-sm font-bold mb-3 block">
+    <label :for="id" class="text-sm font-bold">
       {{ title }}
     </label>
-    <div class="relative px-4 flex items-center border border-gray-600 hover:border-indigo-700 rounded-md">
+    <div class="py-1 relative pl-4 pr-1  flex items-center border border-gray-600 hover:border-indigo-700 rounded-2xl">
       <input
           ref="inputRef"
           :id="id"
@@ -33,9 +34,7 @@ defineExpose({
           :placeholder="placeholder"
           :type="type"
       />
-      <div class="absolute right-4 top-2.5">
-        <slot/>
-      </div>
+      <ButtonRounded>ANUNCIAR</ButtonRounded>
     </div>
   </div>
 </template>
