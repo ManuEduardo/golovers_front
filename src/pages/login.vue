@@ -40,7 +40,7 @@ const {formLogin, errors, submitLoginForm} = useAuth()
         </div>
         <div class="grid gap-8">
           <div>
-            <InputIcon title="Usuario: código de alumno UTP"
+            <InputIcon title="Usurious: código de alumno UTP"
                        v-model="formLogin.id"
                        id="username" type="text"
                        placeholder="Ingresa tu código UTP">

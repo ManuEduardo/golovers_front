@@ -23,7 +23,8 @@ export default {
             },
             colors: {
                 "primary": "#ecf4f9",
-                "coral": "#fd7f7d"
+                "coral": "#fd7f7d",
+                "verdeAgua" : "#9ec8d1"
             }
         },
     },
