@@ -40,6 +40,7 @@ const {email, studentsList, addStudent, deleteStudent} = useStudent()
           </div>
         </div>
       </div>
+
       <div v-if="form.hasClass" class="flex flex-col gap-10 mt-10">
         <InputChat
             title="Seleccionar Curso"

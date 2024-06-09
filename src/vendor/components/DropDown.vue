@@ -12,23 +12,23 @@ const {show, handleShow} = useShow()
       <slot name="trigger"/>
     </button>
 
-<!--    <Transition
-        enter-active-class="ease-in duration-200"
-        enter-from-class="opacity-70 translate-y-5"
-        enter-to-class="opacity-100 translate-y-0"
-        leave-active-class="ease-out duration-200"
-        leave-from-class="opacity-100"
-        leave-to-class="opacity-0"
+    <!--    <Transition
+            enter-active-class="ease-in duration-200"
+            enter-from-class="opacity-70 translate-y-5"
+            enter-to-class="opacity-100 translate-y-0"
+            leave-active-class="ease-out duration-200"
+            leave-from-class="opacity-100"
+            leave-to-class="opacity-0"
+        >
+        </Transition>-->
+    <div
+        v-show="show"
+        class="absolute bg-main text-white origin-bottom right-0 top-full mb-2 rounded-lg shadow-lg w-52 transition-all"
     >
-    </Transition>-->
-      <div
-          v-show="show"
-          class="absolute bg-black-secondary origin-bottom right-0 top-full mb-2 rounded-lg shadow-lg w-52 transition-all"
-      >
-        <div class="p-1" @click="handleShow">
-          <slot name="content"/>
-        </div>
+      <div class="p-2 pl-4" @click="handleShow">
+        <slot name="content"/>
       </div>
+    </div>
   </div>
 </template>
 

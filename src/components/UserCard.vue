@@ -2,10 +2,10 @@
 
 import ArrowSvg from "@/vendor/svg/ArrowSvg.vue";
 import UserIconSVG from "@/vendor/svg/UserIconSVG.vue";
-import {useAuthStore} from "@/stores/AuthStore";
 import DropDown from "@/vendor/components/DropDown.vue";
+import useAuth from "@/composables/useAuth";
 
-const {authUser} = useAuthStore()
+const {authUser, handleLogout} = useAuth()
 </script>
 
 <template>
@@ -22,7 +22,7 @@ const {authUser} = useAuthStore()
           <ArrowSvg class="w-7 h-7" fill="fill-gray-400"/>
         </template>
         <template #content>
-          hola
+          <p @click="handleLogout">SALIR</p>
         </template>
       </DropDown>
     </div>
