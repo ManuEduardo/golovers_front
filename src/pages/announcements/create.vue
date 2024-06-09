@@ -4,7 +4,7 @@ import PaperBin from "@/vendor/svg/PaperBin.vue";
 </script>
 
 <template>
-  <div class=" shadow-xl">
+  <div class=" shadow-xl bg-white">
     <div class="pb-10">
       <ButtonDefault class=" bg-main px-8 py-3 rounded-s-lg">ANUNCIAR</ButtonDefault>
     </div>

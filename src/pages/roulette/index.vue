@@ -20,7 +20,7 @@ import CardRulette from "@/pages/roulette/components/CardRulette.vue";
 </template>
 
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -35,7 +35,3 @@ import CardRulette from "@/pages/roulette/components/CardRulette.vue";
 }
 </style>
 
-
-<style scoped>
-
-</style>
