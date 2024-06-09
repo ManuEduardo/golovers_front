@@ -8,11 +8,11 @@ const {show, handleShow} = useShow()
 <template>
   <div class="relative">
     <button @click="handleShow" type="button"
-            class="flex items-center px-4 py-2 text-white hover:bg-white/10 rounded-lg">
+            class="flex items-center px-4 py-2 rounded-lg">
       <slot name="trigger"/>
     </button>
 
-    <Transition
+<!--    <Transition
         enter-active-class="ease-in duration-200"
         enter-from-class="opacity-70 translate-y-5"
         enter-to-class="opacity-100 translate-y-0"
@@ -20,15 +20,15 @@ const {show, handleShow} = useShow()
         leave-from-class="opacity-100"
         leave-to-class="opacity-0"
     >
+    </Transition>-->
       <div
           v-show="show"
-          class="absolute bg-black-secondary origin-bottom right-0 bottom-full mb-2 rounded-lg shadow-lg w-52 transition-all"
+          class="absolute bg-black-secondary origin-bottom right-0 top-full mb-2 rounded-lg shadow-lg w-52 transition-all"
       >
         <div class="p-1" @click="handleShow">
           <slot name="content"/>
         </div>
       </div>
-    </Transition>
   </div>
 </template>
 
