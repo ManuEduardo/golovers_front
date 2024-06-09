@@ -1,5 +1,5 @@
 import './assets/style.css'
-
+import './assets/axiosConfig'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import PiniaPluginPersistedState from 'pinia-plugin-persistedstate'
