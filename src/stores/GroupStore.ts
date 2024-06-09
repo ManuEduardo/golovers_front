@@ -21,7 +21,7 @@ export const useGroupStore =
             form.studentId = authStore.authUser.id
             form.img = 'imagen'
             form.students = studentStore.countStudents()
-            await createGroup(form)
+            return createGroup(form)
         }
 
         return {

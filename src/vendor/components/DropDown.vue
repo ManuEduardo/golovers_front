@@ -29,6 +29,10 @@ const {show, handleShow} = useShow()
         <slot name="content"/>
       </div>
     </div>
+    <Teleport to="body" v-if="show">
+      <div class="fixed top-0 left-0 h-screen w-screen" @click="handleShow">
+      </div>
+    </Teleport>
   </div>
 </template>
 

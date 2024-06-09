@@ -8,16 +8,9 @@ import PlusCircle from "@/components/PlusCircle.vue";
 import CardKambanPanel from "@/pages/panels/components/CardKanbanPanel.vue";
 import ButtonDefault from "@/vendor/components/ButtonDefault.vue";
 import RulleteSvg from "@/vendor/svg/RulleteSvg.vue";
+import useStudent from "@/composables/useStudent";
 
-const list = [{
-  id: 1,
-  name: "Carlos",
-  score: 80
-}, {
-  d: 2,
-  name: "Leonardo",
-  score: 100
-}]
+const {students} = useStudent()
 
 const doList = [
   {
@@ -72,15 +65,15 @@ const links = [{
     <CardGroupControl class="flex-grow">
       <template #title>Integrantes</template>
       <div class="grid gap-4">
-        <ItemUser v-for="item in list" :key="item.id" :name="item.name"/>
+        <ItemUser v-for="item in students" :key="item.id" :name="item.name"/>
       </div>
     </CardGroupControl>
 
     <CardGroupControl class="w-112">
       <template #title> Contribucion de Estudiantes</template>
       <div class="grid gap-4">
-        <Seeparticipation v-for="item in list" :key="item.id" :name="item.name"
-                          :score="item.score"/>
+        <Seeparticipation v-for="item in students" :key="item.id" :name="item.name"
+                          :score="50"/>
       </div>
     </CardGroupControl>
 

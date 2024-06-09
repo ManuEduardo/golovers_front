@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import ChatCardComponent from "@/pages/announcements/components/ChatCardComponent.vue";
 import ButtonDefault from "@/vendor/components/ButtonDefault.vue";
+import useAnnouncements from "@/composables/useAnnouncements";
+
+const {announcements} = useAnnouncements()
+
 </script>
 
 <template>
