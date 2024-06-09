@@ -10,5 +10,4 @@ export type GroupM = {
 
 export const GroupI: GroupM ={
     className: "", description: "", hasClass: false, img: "", name: "", studentId: 0, students: 0
-
 }

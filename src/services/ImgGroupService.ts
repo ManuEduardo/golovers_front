@@ -11,9 +11,9 @@ export const getImgGroup = () => {
     }
 }
 
-export const registerImgGroup = (form: GroupIngM) => {
+export const registerImgGroup =  async (form: GroupIngM) => {
     try {
-        const response = axios.post("imggroup/register", form)
+        const response = await axios.post("imggroup/register", form)
         return response.data
     } catch (e) {
 
