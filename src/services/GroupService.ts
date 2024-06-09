@@ -2,18 +2,27 @@ import axios from "axios";
 import type {GroupM} from "@/models/group";
 import type {MenberM} from "@/models/member";
 
-export const getListCurses = (code: string) => {
+export const findAllGroups = async () => {
     try {
-        const response = axios.get(`groups/list/${code}`)
+        const response = await axios.get(`groups/list`)
         return response.data
     } catch (e) {
         console.log(e)
     }
 }
 
-export const registerCurses = async(form: GroupM) => {
+export const createGroup = async (form: GroupM) => {
     try {
-        const response =await axios.post("groups/create", form)
+        const response = await axios.post("groups/create", form)
+        return response.data
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+export const findGroupByCode = async (code: string) => {
+    try {
+        const response = await axios.get(`groups/list/${code}`)
         return response.data
     } catch (e) {
         console.log(e)
@@ -21,10 +30,10 @@ export const registerCurses = async(form: GroupM) => {
 }
 
 export const newMember = async (form: MenberM) => {
-    try{
+    try {
         const response = await axios.post("groups/newMember", form)
         return response.data
-    }catch (e){
+    } catch (e) {
         console.log(e)
     }
 }

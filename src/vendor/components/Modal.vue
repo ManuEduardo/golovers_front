@@ -59,7 +59,7 @@ onUnmounted(() => {
   <Teleport to="body">
     <Transition leave-active-class="duration-200">
       <div v-show="show" class="fixed inset-0 overflow-hidden z-50">
-        <div class="flex py-4 max-h-full">
+        <div class="flex py-4 h-full items-center">
           <Transition
               enter-active-class="ease-out duration-300"
               enter-from-class="opacity-0"

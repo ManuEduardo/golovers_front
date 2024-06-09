@@ -1,20 +1,18 @@
 import {defineStore} from "pinia";
 import {ref} from "vue";
-import {GroupI, type GroupM} from "@/models/group";
-import {registerCurses} from "@/services/GroupService";
 import {GroupImgI, type GroupIngM} from "@/models/groupIng";
-import {registerImgGroup} from "@/services/ImgGroupService";
+import {createImgGroup} from "@/services/ImgGroupService";
 
-export const useGroupStore = defineStore("ImgGroup",()=>{
+export const useGroupStore = defineStore("ImgGroup", () => {
 
     const ImgGroup = ref([{...GroupImgI}])
 
-    const getAllGroups = ()=>{
+    const getAllGroups = () => {
 
     }
 
-    const createGroup = async (form: GroupIngM)=>{
-        await registerImgGroup(form)
+    const createGroup = async (form: GroupIngM) => {
+        await createImgGroup(form)
     }
 
     return {

@@ -8,13 +8,13 @@ defineProps({
 </script>
 
 <template>
-  <div class="px-16 flex flex-col h-full  ">
+  <div class=" flex flex-col h-full  ">
     <div class="py-5">
-      <div class="flex gap-4">
+      <div class="flex gap-16">
         <TabLink :to="{name:'panels', params:{idGroup:idGroup}}">PANEL DE CONTROL</TabLink>
         <TabLink :to="{name:'announcements'}">ANUNCIOS</TabLink>
         <TabLink :to="{name:'kanban', params:{idKanban:idKanban??1}}">TABLERO KAMBAN</TabLink>
-        <TabLink>RULETA</TabLink>
+        <TabLink :to="{name: 'roulette'}">RULETA</TabLink>
       </div>
       <slot/>
     </div>

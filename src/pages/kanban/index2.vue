@@ -93,7 +93,7 @@ const {show, handleShow} = useShow()
 </script>
 
 <template>
-  <div class="flex justify-between gap-2 flex-wrap h-full w-[1000px] mx-auto">
+  <div class="flex justify-between gap-20 flex-wrap h-full">
     <div class="flex-1 flex flex-col items-center h-full">
       <CardKanban title="PENDIENTE" color="bg-green-400"
                   class="w-full flex-grow"

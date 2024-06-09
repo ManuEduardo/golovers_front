@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import ImgGroup from "@/assets/img/groups/group1.png";
 const props = defineProps({
   id: String,
   img: String,
-  group: String,
+  name: String,
   description: String,
-  curse: String,
+  className: String,
 })
 </script>
 
@@ -13,12 +14,12 @@ const props = defineProps({
     <div class="select-none bg-white px-7 py-4 rounded-2xl">
       <div class="mb-3">
         <div class="border-b-2 px-1 border-cyan py-3">
-          <img :src="img" alt="" class="select-none pointer-events-none w-full">
+          <img :src="ImgGroup" alt="" class="select-none pointer-events-none w-full">
         </div>
         <div class="flex justify-between mb-4 mt-3">
           <div>
-            <p class="font-bold text-xl mb-1">{{ group }}</p>
-            <p class="text-xs text-gray-600">{{ curse }}</p>
+            <p class="font-bold text-xl mb-1">{{ name }}</p>
+            <p class="text-xs text-gray-600">{{ className }}</p>
           </div>
           <p class="font-bold text-xl">{{ id }}</p>
         </div>

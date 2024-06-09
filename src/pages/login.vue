@@ -11,7 +11,7 @@ import useAuth from "@/composables/useAuth";
 import DangerMessage from "@/vendor/Messages/DangerMessage.vue";
 
 defineHead({
-  group: "Login"
+  title: "Login"
 })
 
 const {formLogin, errors, submitLoginForm} = useAuth()
@@ -41,12 +41,12 @@ const {formLogin, errors, submitLoginForm} = useAuth()
         <div class="grid">
           <div class="mb-8">
             <InputIcon title="Usuario: código de alumno UTP"
-                       v-model="formLogin.id"
+                       v-model="formLogin.email"
                        id="username" type="text"
                        placeholder="Ingresa tu código UTP">
               <UserSvg/>
             </InputIcon>
-            <DangerMessage>{{errors.id}}</DangerMessage>
+            <DangerMessage>{{ errors.email }}</DangerMessage>
             <InfoMessage class="text-xs mt-1 mb-5">Ejemplo de usuario: U1533148 (no digitar el @utp.edu.pe)
             </InfoMessage>
           </div>
@@ -54,7 +54,7 @@ const {formLogin, errors, submitLoginForm} = useAuth()
             <InputPassword title="Contraseña" id="password"
                            v-model="formLogin.password"
                            placeholder="Ingresa tu contraseña"/>
-            <DangerMessage>{{errors.password}}</DangerMessage>
+            <DangerMessage>{{ errors.password }}</DangerMessage>
           </div>
           <ButtonDefault class="py-4" @click="submitLoginForm">Inicia Sesión</ButtonDefault>
         </div>

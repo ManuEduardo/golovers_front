@@ -1,10 +1,10 @@
-export type loginM ={
+export type loginM = {
     "email": string,
-    "password":string
+    "password": string
 
 }
 
-export const LogimI:loginM = {
+export const LogimI: loginM = {
     email: "", password: ""
 
 }

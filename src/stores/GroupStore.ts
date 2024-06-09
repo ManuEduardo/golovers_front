@@ -1,23 +1,32 @@
 import {defineStore} from "pinia";
-import {getListCurses, registerCurses} from '@/services/GroupService'
-import {ref} from "vue";
-import {GroupI,type GroupM} from "@/models/group";
-export const useGroupStore = defineStore("groups",()=>{
+import {findAllGroups, createGroup} from '@/services/GroupService'
+import {type Ref, ref} from "vue";
+import {GroupI, type GroupM} from "@/models/group";
+import {useAuthStore} from "@/stores/AuthStore";
+import {useStudentStore} from "@/stores/StudentStore";
 
-    const groups = ref([{...GroupI}])
+export const useGroupStore =
+    defineStore("groups", () => {
 
-    const getAllGroups = ()=>{
+        const authStore = useAuthStore()
+        const studentStore = useStudentStore()
 
-    }
+        const groups: Ref<GroupM[]> = ref([])
 
-    const createGroup = async (form: GroupM)=>{
-        await registerCurses(form)
-    }
+        const getAllGroups = async () => {
+            groups.value = await findAllGroups()
+        }
 
-    return {
-        groups,
+        const registerGroup = async (form: GroupM) => {
+            form.studentId = authStore.authUser.id
+            form.img = 'imagen'
+            form.students = studentStore.countStudents()
+            await createGroup(form)
+        }
 
-        getAllGroups,
-        createGroup
-    }
-})
+        return {
+            groups,
+            getAllGroups,
+            registerGroup
+        }
+    })

@@ -3,7 +3,8 @@ import {UserI, UserLoginValidations} from "@/models/user";
 
 
 export const useFormLogin = () => {
-    const {form, errors, noErrors, validate} = useForm({...UserI}, UserLoginValidations)
+    const {form, errors, noErrors, validate} =
+        useForm({...UserI}, UserLoginValidations)
     return {
         formLogin: form,
         errors,

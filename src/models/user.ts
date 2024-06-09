@@ -1,27 +1,33 @@
 import type {Validation} from "@/vendor/useForm/model";
 
 export type UserM = {
-    id: string
-    password: string
+    id: number,
+    name: string,
+    lastName: string,
+    email: string,
+    password: string,
+    ciclo: number,
+    phone: string,
 }
 
 export const UserI: UserM = {
-    id: "", password: ""
+    ciclo: 0, email: "", lastName: "", name: "", phone: "",
+    id: 0, password: ""
 }
 
 
 export type UserLoginValidationsType = {
-    id: Validation,
+    email: Validation,
     password: Validation
 }
 
 export const UserLoginValidations: UserLoginValidationsType = {
-    id: {
+    email: {
         attr: 'código',
-        rules: 'required|min:3'
+        rules: 'required'
     },
     password: {
         attr: 'contraseña',
-        rules: 'required|password'
+        rules: 'required'
     }
 }

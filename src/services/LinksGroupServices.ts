@@ -1,20 +1,20 @@
 import axios from "axios";
 import type {GroupLinkM} from "@/models/groupLink";
 
-export const getLinksGroups = (id:string) => {
+export const findLinksGroups = async (id: string) => {
     try {
-        const response = axios.get(`links/list/${id}`)
+        const response = await axios.get(`links/list/${id}`)
         return response.data
-    }catch (error){
+    } catch (error) {
         console.log(error)
     }
 }
 
-export const registerLinkGroups = async (form: GroupLinkM) => {
+export const createLinkGroups = async (form: GroupLinkM) => {
     try {
         const response = await axios.post(`links/newLinkGroupUtp`)
         return response.data
-    }catch (error){
+    } catch (error) {
         console.log(error)
     }
 }

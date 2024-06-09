@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {ref} from "vue";
-import ButtonRounded from "@/components/ButtonRounded.vue";
 
 const model = defineModel()
 
@@ -8,7 +7,7 @@ type Props = {
   title?: string
   id?: string
   placeholder?: string
-  type: string,
+  type?: string,
 }
 
 defineProps<Props>()
@@ -18,6 +17,7 @@ const inputRef = ref<HTMLInputElement | null>(null);
 defineExpose({
   inputRef,
 });
+
 </script>
 
 <template>
