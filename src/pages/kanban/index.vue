@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import CardKanban from "@/pages/kanban/components/CardKanban.vue";
 import Itemkanban from "@/pages/kanban/components/Itemkanban.vue";
-import { computed, ref } from "vue";
+import {computed, ref} from "vue";
+import ButtonDefault from "@/vendor/components/ButtonDefault.vue";
+import CreateTaskModal from "@/pages/kanban/components/CreateTaskModal.vue";
+import useShow from "@/vendor/useShow";
 
 const draggedItem = ref(null);
 
@@ -85,49 +88,63 @@ const pendingTasks = computed(() => tasks.value.filter(item => item.column === 0
 const inProgressTasks = computed(() => tasks.value.filter(item => item.column === 1));
 const doneTasks = computed(() => tasks.value.filter(item => item.column === 2));
 
+
+const {show, handleShow} = useShow()
 </script>
 
 <template>
-  <div class="flex justify-between gap-5 flex-wrap">
-    <CardKanban title="PENDIENTE" color="bg-green-400"
-                class="flex-1"
-                @dragover="handleOver"
-                @drop="handleDrop(0)">
-      <div class="flex flex-col gap-4">
-        <Itemkanban
-            v-for="task in pendingTasks" :key="task.id" v-bind="task"
-            :draggable="true" @dragstart="handleStart(task)"
-            @dragend="handleEnd"
-        />
+  <div class="flex justify-between gap-20 flex-wrap h-full">
+    <div class="flex-1 flex flex-col items-center h-full">
+      <CardKanban title="PENDIENTE" color="bg-green-400"
+                  class="w-full flex-grow"
+                  @dragover="handleOver"
+                  @drop="handleDrop(0)">
+        <div class="flex flex-col gap-4">
+          <Itemkanban
+              v-for="task in pendingTasks" :key="task.id" v-bind="task"
+              :draggable="true" @dragstart="handleStart(task)"
+              @dragend="handleEnd"
+          />
+        </div>
+      </CardKanban>
+      <div class="h-20 flex items-center">
+        <ButtonDefault @click="handleShow">+ Añadir Tarea</ButtonDefault>
       </div>
-    </CardKanban>
+    </div>
+    <div class="flex-1 flex flex-col items-center h-full">
+      <CardKanban title="EN PROGRESO" color="bg-yellow-400"
+                  class="w-full flex-grow"
+                  @dragover="handleOver"
+                  @drop="handleDrop(1)">
+        <div class="flex flex-col gap-4">
+          <Itemkanban
+              v-for="task in inProgressTasks" :key="task.id" v-bind="task"
+              :draggable="true" @dragstart="handleStart(task)"
+              @dragend="handleEnd"
+          />
+        </div>
+      </CardKanban>
+      <div class="h-20 flex items-center"></div>
+    </div>
+    <div class="flex-1 flex flex-col items-center h-full">
+      <CardKanban title="HECHO" color="bg-blue-400"
+                  class="w-full flex-grow"
+                  @dragover="handleOver"
+                  @drop="handleDrop(2)">
+        <div class="flex flex-col gap-4">
+          <Itemkanban
+              v-for="task in doneTasks" :key="task.id" v-bind="task"
+              :draggable="true" @dragstart="handleStart(task)"
+              @dragend="handleEnd"
+          />
+        </div>
+      </CardKanban>
+      <div class="h-20 flex items-center"></div>
+    </div>
 
-    <CardKanban title="EN PROGRESO" color="bg-yellow-400"
-                class="flex-1"
-                @dragover="handleOver"
-                @drop="handleDrop(1)">
-      <div class="flex flex-col gap-4">
-        <Itemkanban
-            v-for="task in inProgressTasks" :key="task.id" v-bind="task"
-            :draggable="true" @dragstart="handleStart(task)"
-            @dragend="handleEnd"
-        />
-      </div>
-    </CardKanban>
 
-    <CardKanban title="HECHO" color="bg-blue-400"
-                class="flex-1"
-                @dragover="handleOver"
-                @drop="handleDrop(2)">
-      <div class="flex flex-col gap-4">
-        <Itemkanban
-            v-for="task in doneTasks" :key="task.id" v-bind="task"
-            :draggable="true" @dragstart="handleStart(task)"
-            @dragend="handleEnd"
-        />
-      </div>
-    </CardKanban>
   </div>
+  <CreateTaskModal v-model="show"/>
 </template>
 
 <style scoped>

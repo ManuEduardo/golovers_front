@@ -15,7 +15,7 @@ import Logo from '@/assets/img/logo.png'
           <h1 class="font-bold ">{{ $route.meta.title }}</h1>
         </div>
       </div>
-      <div class="bg-[#eff6ff] flex-grow h-full">
+      <div class="bg-clear-sky flex-grow h-full">
         <RouterView/>
       </div>
     </div>

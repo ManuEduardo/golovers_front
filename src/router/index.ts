@@ -54,16 +54,16 @@ const router = createRouter({
                                 title: 'GRUPOS'
                             },
                             component: Groups,
-                        },
-                        {
-                            path: 'crear',
-                            name: 'groups-create',
-                            meta: {
-                                title: 'GRUPOS'
-                            },
-                            component: GroupsCreate,
                         }
                     ]
+                },
+                {
+                    path: 'grupos/crear',
+                    name: 'groups-create',
+                    meta: {
+                        title: 'GRUPOS'
+                    },
+                    component: GroupsCreate,
                 },
                 {
                     path: 'paneles/:idGroup',

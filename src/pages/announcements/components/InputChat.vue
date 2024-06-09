@@ -21,15 +21,15 @@ defineExpose({
 </script>
 
 <template>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-2">
     <label :for="id" class="text-md ml-2">
       {{ title }}
     </label>
-    <div class="py-2 relative pl-4 pr-1 flex items-center shadow-lg bg-white rounded-3xl">
+    <div class="py-2 relative pl-4 pr-1 flex items-center shadow-lg bg-gray-100 rounded-3xl">
       <input
           ref="inputRef"
           :id="id"
-          class="w-full py-2.5 placeholder-gray-600 focus:outline-none"
+          class="w-full py-2.5 placeholder-gray-600 focus:outline-none bg-transparent"
           v-model="model"
           :placeholder="placeholder"
           :type="type"
