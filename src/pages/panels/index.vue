@@ -106,6 +106,7 @@ const links = [{
       </div>
     </CardGroupControl>
 
+<<<<<<< HEAD
 
     <div class="flex justify-between w-full">
       <CardGroupControl class="w-100">
@@ -130,6 +131,26 @@ const links = [{
     </div>
 
 
+=======
+    <CardGroupControl class="w-1/3">
+      <template #title>LINKS DE GRUPO</template>
+      <div class="p-4">
+        <ItemLink v-for="item in links" :key="item.id" :name="item.name" :link="item.link"/>
+      </div>
+    </CardGroupControl>
+    <CardGroupControl class="w-60">
+      <template #title>ANUNCIOS</template>
+      <div class="bg-gray-100 p-4 rounded-xl">
+        <PlusCircle/>
+      </div>
+    </CardGroupControl>
+    <CardGroupControl class="w-1/3">
+      <template #title>LINKS DE GRUPO</template>
+      <div class="p-4">
+        <ItemLink v-for="item in links" :key="item.id" :name="item.name" :link="item.link"/>
+      </div>
+    </CardGroupControl>
+>>>>>>> fd7a62618a5f23292bca80381b26d6cbe6d39db9
   </div>
 </template>
 
