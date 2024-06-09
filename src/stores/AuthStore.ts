@@ -12,7 +12,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     const login = async (form: UserM) => {
         try {
-            authUser.value = await authLogin(form)
+            //authUser.value = await authLogin(form)
             isAuth.value = true
             await router.push({name: 'groups'})
         } catch (e) {

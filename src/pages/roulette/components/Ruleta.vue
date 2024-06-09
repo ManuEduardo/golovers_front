@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div >
     <canvas ref="canvas" :width="size" :height="size"></canvas>
-    <button @click="spin">GIRAR</button>
+    <button @click="spin" class="bg-main rounded-md text-white">GIRAR</button>
   </div>
 </template>
+
 
 <script setup>
 import { ref, onMounted } from 'vue'
@@ -60,10 +61,23 @@ const drawRouletteWheel = () => {
     context.value.fillText(text, -context.value.measureText(text).width / 2, 0)
     context.value.restore()
   }
+
+
+  context.value.fillStyle = '#2c3247';
+  context.value.strokeStyle = 'white';
+  context.value.lineWidth = 1;
+  context.value.beginPath();
+  context.value.moveTo(props.size / 2 - 10, 10);
+  context.value.lineTo(props.size / 2 + 10, 10);
+  context.value.lineTo(props.size / 2, 30);
+  context.value.closePath();
+  context.value.fill();
+  context.value.stroke();
+
 }
 
 const getColor = (item, maxItem) => {
-  const colors = ['#FF5733', '#33FF57', '#3357FF', '#57FF33', '#5733FF', '#FF33A6']
+  const colors = ['#d87979', '#17c59b', '#68bdcf', '#ffcb12', '#5733FF', '#FF33A6']
   return colors[item % colors.length]
 }
 
@@ -104,10 +118,25 @@ onMounted(() => {
 })
 </script>
 
+
+
 <style scoped>
 canvas {
-  border: 1px solid black;
+  border: 1px solid rgba(255, 255, 255, 0);
   border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+.pointer {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 button {
   display: block;
@@ -116,3 +145,5 @@ button {
   font-size: 16px;
 }
 </style>
+
+

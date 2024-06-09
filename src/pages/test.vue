@@ -18,6 +18,7 @@ import CardAdvertisement from "@/components/CardAdvertisement.vue";
 import ButtonDefault from "@/vendor/components/ButtonDefault.vue";
 import UserCard from "@/components/UserCard.vue";
 import SideAnunce from "@/components/SideAnunce.vue";
+import CardRulette from "@/pages/roulette/components/CardRulette.vue";
 
 
 const list = [{
@@ -113,9 +114,9 @@ const links = [{
 <!--  <UserCard #nombre>Leonardo</UserCard>-->
 
 
-<!--  <SideAnunce v-for="item in anuncios" :key="item.id"  />-->
+<!--  <SideAnunce ></SideAnunce>-->
 
-  <SideAnunce ></SideAnunce>
+  <CardRulette/>
 
 </template>
 

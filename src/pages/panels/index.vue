@@ -6,6 +6,8 @@ import ItemTask from "@/pages/panels/components/ItemTask.vue";
 import ItemLink from "@/pages/panels/components/ItemLink.vue";
 import PlusCircle from "@/components/PlusCircle.vue";
 import CardKambanPanel from "@/pages/panels/components/CardKanbanPanel.vue";
+import ButtonDefault from "@/vendor/components/ButtonDefault.vue";
+import RulleteSvg from "@/vendor/svg/RulleteSvg.vue";
 
 const list = [{
   id: 1,
@@ -82,6 +84,9 @@ const links = [{
       </div>
     </CardGroupControl>
 
+
+
+
     <CardGroupControl class="w-full">
       <template #title>TABLERO KAMBAN</template>
       <div class="flex gap-10">
@@ -101,18 +106,30 @@ const links = [{
       </div>
     </CardGroupControl>
 
-    <CardGroupControl>
-      <template #title>LINKS DE GRUPO</template>
-      <div class="p-4">
-        <ItemLink v-for="item in links" :key="item.id" :name="item.name" :link="item.link"/>
-      </div>
-    </CardGroupControl>
-    <CardGroupControl>
-      <template #title>ANUNCIOS</template>
-      <div class="bg-gray-100 p-4 rounded-xl">
-        <PlusCircle/>
-      </div>
-    </CardGroupControl>
+
+    <div class="flex justify-between w-full">
+      <CardGroupControl class="w-100">
+        <template #title>LINKS DE GRUPO</template>
+        <div class="p-4">
+          <ItemLink v-for="item in links" :key="item.id" :name="item.name" :link="item.link"/>
+        </div>
+      </CardGroupControl>
+      <CardGroupControl class="w-100">
+        <template #title>ANUNCIOS</template>
+        <div class="bg-gray-100 p-4 rounded-xl">
+          <PlusCircle/>
+        </div>
+      </CardGroupControl>
+      <CardGroupControl class="w-100">
+        <template #title>ASIGNACION DE ACTIVIDADES</template>
+        <div class="p-4 flex justify-between items-center">
+          <RulleteSvg class="w-30 h-30 P-5"/>
+          <ButtonDefault class="shadow bg-main">APLICAR +</ButtonDefault>
+        </div>
+      </CardGroupControl>
+    </div>
+
+
   </div>
 </template>
 
