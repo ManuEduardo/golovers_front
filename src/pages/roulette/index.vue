@@ -2,6 +2,9 @@
 
 import Ruleta from "@/pages/roulette/components/Ruleta.vue";
 import CardRulette from "@/pages/roulette/components/CardRulette.vue";
+
+
+
 </script>
 
 <template>
