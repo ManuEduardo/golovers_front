@@ -12,26 +12,24 @@ export const useAuthStore = defineStore('auth', () => {
 
     const login = async (form: UserM) => {
         try {
-<<<<<<< HEAD
+
 
             //authUser.value = await authLogin(form)
             isAuth.value = true
             await router.push({name: 'groups'})
 
-=======
+
             //authUser.value = await authLogin(form)
             isAuth.value = true
             await router.push({name: 'groups'})
->>>>>>> 117cf7ce74a8ffe8afbabe5a078e84a7167b7c76
+
             authUser.value = await authLogin(form)
             if (authUser.value) {
                 isAuth.value = true
                 await router.push({name: 'groups'})
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> 117cf7ce74a8ffe8afbabe5a078e84a7167b7c76
+
         } catch (e) {
             console.log(e)
         }
