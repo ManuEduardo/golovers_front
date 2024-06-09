@@ -14,9 +14,11 @@ import Seeparticipation from "@/pages/panels/components/Seeparticipation.vue";
 import ItemTask from "@/pages/panels/components/ItemTask.vue";
 import ItemLink from "@/pages/panels/components/ItemLink.vue";
 import MenuButton from "@/vendor/components/MenuButton.vue";
-import CardRoulette from "@/components/CardRoulette.vue";
 import CardAdvertisement from "@/components/CardAdvertisement.vue";
 import ButtonDefault from "@/vendor/components/ButtonDefault.vue";
+import UserCard from "@/components/UserCard.vue";
+import SideAnunce from "@/components/SideAnunce.vue";
+
 
 const list = [{
   id: 1,
@@ -51,6 +53,8 @@ const links = [{
   nombre: "Link Imagenes",
   link: "https://www.youtube.com/watch?v=IuifpGl2sPk"
 }]
+
+
 
 </script>
 
@@ -104,8 +108,14 @@ const links = [{
 <!--    </CardGroupControl>-->
 <!--  </CardGroupControl>-->
 
-  <CardAdvertisement/>
+<!--  <CardAdvertisement/>-->
 
+<!--  <UserCard #nombre>Leonardo</UserCard>-->
+
+
+<!--  <SideAnunce v-for="item in anuncios" :key="item.id"  />-->
+
+  <SideAnunce ></SideAnunce>
 
 </template>
 
