@@ -13,6 +13,10 @@ import ItemUser from "@/pages/panels/components/ItemUser.vue";
 import Seeparticipation from "@/pages/panels/components/Seeparticipation.vue";
 import ItemTask from "@/pages/panels/components/ItemTask.vue";
 import ItemLink from "@/pages/panels/components/ItemLink.vue";
+import MenuButton from "@/vendor/components/MenuButton.vue";
+import CardRoulette from "@/components/CardRoulette.vue";
+import CardAdvertisement from "@/components/CardAdvertisement.vue";
+import ButtonDefault from "@/vendor/components/ButtonDefault.vue";
 
 const list = [{
   id: 1,
@@ -99,6 +103,8 @@ const links = [{
 <!--      <ItemLink v-for="item in links" :key="item.id" :nombre="item.nombre" :link="item.link"/>-->
 <!--    </CardGroupControl>-->
 <!--  </CardGroupControl>-->
+
+  <CardAdvertisement/>
 
 
 </template>
