@@ -4,12 +4,13 @@ defineProps({
   description: String,
   ptj: String,
   student: String,
-  date: String
+  date: String,
+  color: String
 })
 </script>
 
 <template>
-  <div class="bg-yellow-200 py-2 px-3 flex flex-col gap-5 rounded-xl">
+  <div class=" py-2 px-3 flex flex-col gap-5 rounded-xl drop-shadow-lg" :class="color">
     <div class="flex flex-col">
       <div class="flex justify-between text-md items-center">
         <p class="font-bold">{{ title }}</p>
