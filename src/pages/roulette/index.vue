@@ -38,7 +38,3 @@ import CardRulette from "@/pages/roulette/components/CardRulette.vue";
 }
 </style>
 
-
-<style scoped>
-
-</style>

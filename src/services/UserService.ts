@@ -17,7 +17,6 @@ export const authLogin = async (form: loginM) => {
     try {
         const response = await axios.post("login",
             {email: form.email, password: form.password})
-        console.log(response)
         return response.data
     } catch (e) {
         console.log(e)

@@ -8,7 +8,7 @@ export const useAuthStore = defineStore('auth', () => {
     const router = useRouter()
     const authUser = ref({...UserI})
     const isAuth = ref(false)
-    const token = ref(null)
+    const token = ref("")
 
     const login = async (form: UserM) => {
         try {
@@ -25,6 +25,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     const logout = async () => {
         isAuth.value = false
+        token.value = ""
         authUser.value = {...UserI}
         await router.push({name: 'login'})
     }
