@@ -95,7 +95,7 @@ const {show, handleShow} = useShow()
 <template>
   <div class="flex justify-between gap-2 flex-wrap h-full w-[1000px] mx-auto">
     <div class="flex-1 flex flex-col items-center h-full">
-      <CardKanban title="PENDIENTE" color="bg-green-400"
+      <CardKanban title="Pendiente" color="bg-[#a1dc77]"
                   class="w-full flex-grow"
                   @dragover="handleOver"
                   @drop="handleDrop(0)">
@@ -104,6 +104,8 @@ const {show, handleShow} = useShow()
               v-for="task in pendingTasks" :key="task.id" v-bind="task"
               :draggable="true" @dragstart="handleStart(task)"
               @dragend="handleEnd"
+              color="bg-[#e1ffca]"
+
           />
         </div>
       </CardKanban>
@@ -112,7 +114,7 @@ const {show, handleShow} = useShow()
       </div>
     </div>
     <div class="flex-1 flex flex-col items-center h-full">
-      <CardKanban title="EN PROGRESO" color="bg-yellow-400"
+      <CardKanban title="En progreso" color="bg-[#f7d24d]"
                   class="w-full flex-grow"
                   @dragover="handleOver"
                   @drop="handleDrop(1)">
@@ -121,13 +123,14 @@ const {show, handleShow} = useShow()
               v-for="task in inProgressTasks" :key="task.id" v-bind="task"
               :draggable="true" @dragstart="handleStart(task)"
               @dragend="handleEnd"
+              color="bg-[#fbf1cb]"
           />
         </div>
       </CardKanban>
       <div class="h-20 flex items-center"></div>
     </div>
     <div class="flex-1 flex flex-col items-center h-full">
-      <CardKanban title="HECHO" color="bg-blue-400"
+      <CardKanban title="Hecho" color="bg-[#fa9598]"
                   class="w-full flex-grow"
                   @dragover="handleOver"
                   @drop="handleDrop(2)">
@@ -136,6 +139,7 @@ const {show, handleShow} = useShow()
               v-for="task in doneTasks" :key="task.id" v-bind="task"
               :draggable="true" @dragstart="handleStart(task)"
               @dragend="handleEnd"
+              color="bg-[#f6d4d4]"
           />
         </div>
       </CardKanban>
