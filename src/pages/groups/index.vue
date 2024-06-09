@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import ImgGroup from "@/assets/img/groups/group1.png";
-import CardGrup from "@/components/grupos/CardGrup.vue";
+import CardGrup from "@/pages/groups/components/CardGrup.vue";
 import CardAddGroup from "@/pages/groups/components/CardAddGroup.vue";
 import TabLink from "@/components/TabLink.vue";
 
@@ -32,25 +32,15 @@ const groups = [
 
 <template>
 
-  <div class="flex h-full">
-    <div class="flex-grow px-16 py-5">
-      <div class="flex gap-4">
-        <TabLink>GRUPOS ACTIVOS</TabLink>
-        <TabLink>GRUPOS ARCHIVADOS</TabLink>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-12 w-full py-4 ">
-        <CardAddGroup class="min-h-80 "/>
-        <CardGrup
-            v-for="group in groups"
-            :key="group.id"
-            v-bind="group"
-            class="min-h-80 "
-        />
-      </div>
-    </div>
-    <div class="w-80 px-6 flex-shrink-0">
-
-    </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-12 w-full py-4 ">
+    <CardAddGroup class="min-h-80 "/>
+    <CardGrup
+        :to="{name:'panels', params:{idGroup:group.id}}"
+        v-for="group in groups"
+        :key="group.id"
+        v-bind="group"
+        class="min-h-80 "
+    />
   </div>
 </template>
 

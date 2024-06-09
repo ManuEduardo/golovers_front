@@ -22,13 +22,13 @@ export default {
                 "100": '25rem',
             },
             colors: {
-                "main": "#388a9d",
+                "main": "#0c2c3e",
                 "cyan": "#56D5F1",
                 "gray-blue": "#9ec8d2",
                 "primary": "#ecf4f9",
                 "coral": "#fd7f7d",
                 "verdeAgua" : "#9ec8d1",
-                "grayPanel" : "#f8f6f6"
+                "clear-sky": "#f1f8fe"
             }
         },
     },

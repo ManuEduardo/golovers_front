@@ -7,12 +7,12 @@ import ChatTarjetsComponent from "@/pages/announcements/components/ChatCardCompo
 import InputChat from "@/pages/announcements/components/InputChat.vue";
 import ChatNombreCurso from "@/pages/announcements/components/ChatNombreCurso.vue";
 import TittleChat from "@/pages/announcements/components/TittleChat.vue";
-import UserPerfile from "@/components/UserPerfile.vue";
-import CardGroupControl from "@/components/panel/CardGroupControl.vue";
-import ItemUser from "@/components/panel/ItemUser.vue";
-import Seeparticipation from "@/components/panel/Seeparticipation.vue";
-import ItemTask from "@/components/panel/ItemTask.vue";
-import ItemLink from "@/components/panel/ItemLink.vue";
+import UserPerfile from "@/components/UserProfile.vue";
+import CardGroupControl from "@/pages/panels/components/CardPanel.vue";
+import ItemUser from "@/pages/panels/components/ItemUser.vue";
+import Seeparticipation from "@/pages/panels/components/Seeparticipation.vue";
+import ItemTask from "@/pages/panels/components/ItemTask.vue";
+import ItemLink from "@/pages/panels/components/ItemLink.vue";
 
 const list = [{
   id: 1,

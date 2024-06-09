@@ -7,8 +7,18 @@ export default () => {
         show.value = !show.value
     }
 
+    const openShow = ()=>{
+        show.value = true
+    }
+
+    const closeShow = ()=>{
+        show.value = false
+    }
+
     return {
         show,
-        handleShow
+        handleShow,
+        openShow,
+        closeShow
     }
 }

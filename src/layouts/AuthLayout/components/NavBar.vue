@@ -5,7 +5,7 @@ import NavLink from "@/components/NavLink.vue";
 import HomeSvg from "@/vendor/svg/HomeSvg.vue";
 import useShow from "@/vendor/useShow";
 
-const {show, handleShow} = useShow()
+const {show, handleShow, closeShow} = useShow()
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const {show, handleShow} = useShow()
         <MenuButton v-model="show"/>
       </div>
       <NavLink
-          @click="handleShow"
+          @click="closeShow"
           :to="{name:'groups'}"
           :component="HomeSvg">
         INICIO
