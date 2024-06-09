@@ -12,7 +12,7 @@ defineProps({
   <div
       class="flex bg-opacity-25 shadow-lg shadow-gray-400 bg-clear-sky rounded-3xl p-4 m-2">
     <div class="flex-col">
-      <UserPerfile :name="name"/>
+      <UserPerfile  :name="name"/>
     </div>
     <div class="ml-4 mb-5">
       <div class="text-xl mt-2 font-bold">{{name}}</div>

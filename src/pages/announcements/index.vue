@@ -14,7 +14,7 @@ import ButtonDefault from "@/vendor/components/ButtonDefault.vue";
     </div>
     <div class="flex justify-end my-4">
       <RouterLink :to="{name:'announcements-create'}">
-        <ButtonDefault class="text-xl py-3">+ Crear Anuncio</ButtonDefault>
+        <ButtonDefault class="text-xl py-3 bg-main">+ Crear Anuncio</ButtonDefault>
       </RouterLink>
     </div>
   </div>
