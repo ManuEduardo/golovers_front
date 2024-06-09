@@ -110,7 +110,7 @@ const links = [{
 
 <!--  <CardAdvertisement/>-->
 
-<!--  <UserCard #nombre>Leonardo</UserCard>-->
+  <UserCard #nombre>Leonardo</UserCard>
 
 
 <!--  <SideAnunce v-for="item in anuncios" :key="item.id"  />-->

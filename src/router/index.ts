@@ -5,7 +5,7 @@ import {useAuthStore} from "@/stores/AuthStore";
 const AuthLayout = () => import("@/layouts/AuthLayout/index.vue")
 const HomeGroupLayout = () => import("@/layouts/GroupsLayout/HomeLayout.vue")
 const GroupsLayout = () => import("@/layouts/GroupsLayout/index.vue")
-const PanelLayout = () => import("@/layouts/PanelLayout/index.vue")
+const PanelLayout = () => import("@/layouts/GroupsLayout/PanelLayout.vue")
 
 const Groups = () => import("@/pages/groups/index.vue")
 const GroupsCreate = () => import("@/pages/groups/create.vue")

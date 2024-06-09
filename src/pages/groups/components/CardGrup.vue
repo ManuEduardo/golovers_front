@@ -11,7 +11,7 @@ const props = defineProps({
 
 <template>
   <RouterLink to="">
-    <div class="select-none bg-white px-7 py-4 rounded-2xl">
+    <div class="select-none bg-white px-7 py-4 rounded-2xl shadow-lg shadow-gray-300">
       <div class="mb-3">
         <div class="border-b-2 px-1 border-cyan py-3">
           <img :src="ImgGroup" alt="" class="select-none pointer-events-none w-full">

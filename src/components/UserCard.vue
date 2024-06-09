@@ -1,27 +1,23 @@
 <script setup lang="ts">
 
 import ArrowSvg from "@/vendor/svg/ArrowSvg.vue";
-import IconUserSvg from "@/vendor/svg/IconUserSvg.vue";
 import UserIconSVG from "@/vendor/svg/UserIconSVG.vue";
+import {useAuthStore} from "@/stores/AuthStore";
 
-
-
+const {authUser} = useAuthStore()
 </script>
 
 <template>
 
-  <div class="px-2 py-2 flex">
-    <div class="border-black border-l px-7 py-4 text-center">
-      Hola, <slot name="nombre"/>
-      <p>U20556310</p>
+  <div class="px-2 py-2 flex border-l-2 border-black gap-5">
+    <div class="flex-grow text-center">
+      <p class="text-sm">Hola, <span class="font-black">{{`${authUser.name} ${authUser.lastName}`}}</span></p>
+      <p class="text-xs">{{authUser.id}}</p>
     </div>
-    <div class="pl-2 py-2 ">
-      <UserIconSVG class="h-16 w-16"/>
+    <div class="flex items-center gap-2">
+      <UserIconSVG class="w-7 h-7" fill="fill-gray-400"/>
+      <ArrowSvg class="w-7 h-7" fill="fill-gray-400"/>
     </div>
-    <div class="h-16 w-16 pt-3 pl-2">
-      <ArrowSvg/>
-    </div>
-
   </div>
 
 
