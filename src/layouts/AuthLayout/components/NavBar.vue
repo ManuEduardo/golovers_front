@@ -15,12 +15,15 @@ const {show, handleShow, closeShow} = useShow()
       <div class="">
         <MenuButton v-model="show"/>
       </div>
-      <NavLink
+      <div>
+        <NavLink
           @click="closeShow"
           :to="{name:'groups'}"
-          :component="HomeSvg">
-        INICIO
-      </NavLink>
+          :component="HomeSvg"
+          class = " m-1 rounded hover:scale-105 transition">
+          <p class=" text-xs">INICIO</p>
+        </NavLink>
+      </div>
     </div>
   </div>
   <div v-show="show" class="h-screen w-screen fixed top-0 left-0 bg-black/30 blur-sm" @click="handleShow">

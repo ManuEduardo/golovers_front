@@ -3,7 +3,7 @@ const model = defineModel()
 </script>
 
 <template>
-  <div>
+  <div class="max-w-8 mx-auto hover:scale-105 transition">
     <label class="bar" for="check">
       <input type="checkbox" id="check" v-model="model"/>
 
