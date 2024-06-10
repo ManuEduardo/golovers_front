@@ -8,7 +8,6 @@ export default () => {
     const {formLogin, validate, errors, noErrors} = useFormLogin()
 
     const submitLoginForm = async () => {
-        formLogin.value.email = formLogin.value.email + '@utp.edu.pe'
         validate()
         if (!noErrors.value) return
         await login(formLogin.value)

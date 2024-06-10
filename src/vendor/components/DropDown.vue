@@ -23,7 +23,7 @@ const {show, handleShow} = useShow()
         </Transition>-->
     <div
         v-show="show"
-        class="absolute bg-main text-white origin-bottom right-0 top-full mb-2 rounded-lg shadow-lg w-52 transition-all"
+        class="absolute bg-main text-white origin-bottom right-0 top-full mb-2 rounded-lg shadow-lg w-52 transition-all z-10"
     >
       <div class="p-2 pl-4" @click="handleShow">
         <slot name="content"/>

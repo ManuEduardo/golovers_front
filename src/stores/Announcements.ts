@@ -1,5 +1,5 @@
 import {defineStore, storeToRefs} from "pinia";
-import {ref} from "vue";
+import {type Ref, ref} from "vue";
 import {createAnnouncements, findAllAnnouncements} from "@/services/AnnouncementsService";
 import {useGroupStore} from "@/stores/GroupStore";
 import {useRouter} from "vue-router";
@@ -11,14 +11,14 @@ export const useAnnouncementsStore = defineStore("announcements", () => {
     const {groups} = storeToRefs(groupsStore)*/
     const router = useRouter()
 
-    const announcements = ref([])
+    const announcements: Ref<AnnouncementsM[]> = ref([])
 
     const getAllAnnouncements = async () => {
         const id = parseInt(router.currentRoute.value.params.idGroup)
         announcements.value = await findAllAnnouncements(id)
     }
 
-    const registerAnnouncements = async (form:AnnouncementsM) => {
+    const registerAnnouncements = async (form: AnnouncementsM) => {
         await createAnnouncements(form)
     }
 

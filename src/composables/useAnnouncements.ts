@@ -23,6 +23,7 @@ export default () => {
 
     onMounted(async () => {
         await getAllAnnouncements()
+        console.log(announcements.value)
     })
 
     return {

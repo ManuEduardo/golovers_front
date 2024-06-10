@@ -12,7 +12,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     const login = async (form: UserM) => {
         try {
-            const data = await authLogin(form)
+            const data = await authLogin({...form, email:form.email+'@utp.edu.pe'})
             token.value = data.token.jwTtoken
             authUser.value = data.student
             if (token.value) {

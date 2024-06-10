@@ -3,8 +3,8 @@ import TabLink from "@/components/TabLink.vue";
 import NavTabDefault from "@/layouts/components/NavTabDefault.vue";
 
 defineProps({
-  idGroup: Number,
-  idKanban: Number
+  idGroup: String,
+  idKanban: String
 })
 </script>
 
