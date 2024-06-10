@@ -13,6 +13,7 @@ export default () => {
 
     const studentsList: Ref<UserM[]> = ref([])
     const addStudent = () => {
+        email.value = email.value+'@utp.edu.pe'
         const student = findStudentByEmail(email.value)
         console.log(email.value)
         if (student) {

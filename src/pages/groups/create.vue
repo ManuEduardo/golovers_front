@@ -9,10 +9,18 @@ import useGroup from "@/composables/useGroup";
 import useStudent from "@/composables/useStudent";
 import InputRoundedSearch from "@/vendor/components/InputRoundedSearch.vue";
 import ContentRounded from "@/vendor/components/ContentRounded.vue";
+import {useRouter} from "vue-router";
 
 
-const {form, errors, submitCreate} = useGroup()
+const {form, errors, submitCreate, show} = useGroup()
 const {email, studentsList, addStudent, deleteStudent} = useStudent()
+
+const route = useRouter()
+
+const close = ()=>{
+  show.value = false
+  route.push({name:'groups'})
+}
 </script>
 
 <template>
@@ -46,6 +54,7 @@ const {email, studentsList, addStudent, deleteStudent} = useStudent()
             title="Seleccionar Curso"
             type="text"
             v-model="form.className"
+            placeholder="Ingrese Nombre del curso"
         >
 
         </InputChat>
@@ -54,6 +63,7 @@ const {email, studentsList, addStudent, deleteStudent} = useStudent()
             v-model="email"
             type="text"
             @search="addStudent"
+            placeholder="Ingrese Nombre del estudiante"
         />
         <div class="p-4">
           <p class="text-lg pb-3">Agregar Integrantes</p>
@@ -69,7 +79,7 @@ const {email, studentsList, addStudent, deleteStudent} = useStudent()
         <ButtonDefault @click="submitCreate" class="text-xl px-6 py-4">GUARAR CAMBIOS</ButtonDefault>
       </div>
     </div>
-    <ModalDone/>
+    <ModalDone :show="show" @close="close"/>
   </CreateLayout>
 </template>
 

@@ -12,8 +12,9 @@ export const useAuthStore = defineStore('auth', () => {
 
     const login = async (form: UserM) => {
         try {
-            token.value = await authLogin(form)
-
+            const data = await authLogin(form)
+            token.value = data.token.jwTtoken
+            authUser.value = data.student
             if (token.value) {
                 isAuth.value = true
                 await router.push({name: 'groups'})
