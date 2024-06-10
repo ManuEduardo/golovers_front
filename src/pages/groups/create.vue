@@ -69,7 +69,7 @@ const close = ()=>{
           <p class="text-lg pb-3">Agregar Integrantes</p>
           <div>
             <ContentRounded v-for="item in studentsList" :key="item.id">
-              <template #info>{{item.name}}</template>
+              <template #info>{{`${item.name} ${item.lastName}`}}</template>
               <button class="text-blue-600" @click="deleteStudent(item.id)">Eliminar</button>
             </ContentRounded>
           </div>

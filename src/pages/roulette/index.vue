@@ -3,7 +3,11 @@
 import Ruleta from "@/pages/roulette/components/Ruleta.vue";
 import CardRulette from "@/pages/roulette/components/CardRulette.vue";
 
-
+const tasks = [
+    "Buscar articulos",
+    "Buscar la Plantilla del documento",
+    "Buscar la Plantilla del documento",
+]
 
 </script>
 

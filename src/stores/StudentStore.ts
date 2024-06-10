@@ -14,7 +14,6 @@ export const useStudentStore =
 
         const findStudentByEmail = (email: string) => {
             return students.value.find(item => {
-                console.log(item.email, email)
                 return item.email === email
             })
         }
