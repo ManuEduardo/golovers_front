@@ -142,47 +142,54 @@ const doneList = [
               </div>
             </CardKambanPanel>
           </div>
+<<<<<<< HEAD
         </CardGroupControl>-->
-    <CardGroupControl class="w-full hover:bg-slate-100 transition">
-      <template #title>TABLERO KAMBAN</template>
-      <div class="flex gap-10">
-        <CardKambanPanel class="w-1/2">
-          <template #title>Pendiente</template>
-          <div class="flex-col">
-            <ItemTask v-for="item in doList" :key="item.id " :task="item.task"/>
-          </div>
-        </CardKambanPanel>
+    <CardGroupControl class="w-full">
+      =======
+      </CardKambanPanel>
+  </div>
+  </CardGroupControl>-->
+  <CardGroupControl class="w-full hover:bg-slate-100 transition">
+    >>>>>>> 0421687f7686985cb10d9324c7660f570d18609e
+    <template #title>TABLERO KAMBAN</template>
+    <div class="flex gap-10">
+      <CardKambanPanel class="w-1/2">
+        <template #title>Pendiente</template>
+        <div class="flex-col">
+          <ItemTask v-for="item in doList" :key="item.id " :task="item.task"/>
+        </div>
+      </CardKambanPanel>
 
-        <CardKambanPanel class="w-1/2 ">
-          <template #title>Completado</template>
-          <div class="flex-col">
-            <ItemTask v-for="item in doneList" :key="item.id " :task="item.task"/>
-          </div>
-        </CardKambanPanel>
+      <CardKambanPanel class="w-1/2 ">
+        <template #title>Completado</template>
+        <div class="flex-col">
+          <ItemTask v-for="item in doneList" :key="item.id " :task="item.task"/>
+        </div>
+      </CardKambanPanel>
+    </div>
+  </CardGroupControl>
+
+  <div class="flex justify-between w-full">
+    <CardGroupControl class="w-100 hover:bg-slate-100 transition">
+      <template #title>LINKS DE GRUPO</template>
+      <div class="p-4">
+        <ItemLink v-for="item in links" :key="item.id" :name="item.name" :link="item.link"/>
       </div>
     </CardGroupControl>
-
-    <div class="flex justify-between w-full">
-      <CardGroupControl class="w-100 hover:bg-slate-100 transition">
-        <template #title>LINKS DE GRUPO</template>
-        <div class="p-4">
-          <ItemLink v-for="item in links" :key="item.id" :name="item.name" :link="item.link"/>
-        </div>
-      </CardGroupControl>
-      <CardGroupControl class="w-100 hover:bg-slate-100 transition">
-        <template #title>ANUNCIOS</template>
-        <div class="bg-gray-100 p-4 rounded-xl">
-          <PlusCircle/>
-        </div>
-      </CardGroupControl>
-      <CardGroupControl class="w-100 hover:bg-slate-100 transition  ">
-        <template #title>ASIGNACION DE ACTIVIDADES</template>
-        <div class="p-4 flex justify-between items-center">
-          <RulleteSvg class="w-30 h-30 P-5"/>
-          <ButtonDefault class="shadow bg-main">APLICAR +</ButtonDefault>
-        </div>
-      </CardGroupControl>
-    </div>
+    <CardGroupControl class="w-100 hover:bg-slate-100 transition">
+      <template #title>ANUNCIOS</template>
+      <div class="bg-gray-100 p-4 rounded-xl">
+        <PlusCircle/>
+      </div>
+    </CardGroupControl>
+    <CardGroupControl class="w-100 hover:bg-slate-100 transition  ">
+      <template #title>ASIGNACION DE ACTIVIDADES</template>
+      <div class="p-4 flex justify-between items-center">
+        <RulleteSvg class="w-30 h-30 P-5"/>
+        <ButtonDefault class="shadow bg-main">APLICAR +</ButtonDefault>
+      </div>
+    </CardGroupControl>
+  </div>
   </div>
 </template>
 

@@ -111,7 +111,7 @@ const stopRotateWheel = () => {
 
 const spin = () => {
   spinTime.value = 0;
-  spinTimeTotal.value = Math.random() * 1000 + 10 * 100;
+  spinTimeTotal.value = Math.random() * 1000 + 10 * 1000;
   rotateWheel();
 };
 

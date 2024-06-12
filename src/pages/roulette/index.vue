@@ -16,10 +16,10 @@ interface Task {
 }
 
 const tasks = ref<Task[]>([
-  { description: 'A' },
-  { description: 'B' },
-  { description: 'C' },
-  { description: 'D' }
+  { description: 'EDITA PRIMERO' },
+  { description: 'EDITA SEGUNDO' },
+  { description: 'EDITA TERCERO' },
+  { description: 'EDITA CUARTO' }
 ]);
 
 
