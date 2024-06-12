@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="py-4 relative pl-4 pr-4 flex items-center shadow-lg bg-gray-100 rounded-3xl justify-between">
+  <div class=" text-lg py-4 pl-8 pr-4 flex items-center shadow bg-gray-100 rounded-xl justify-between">
     <slot name="info"/>
     <slot/>
   </div>
