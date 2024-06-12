@@ -8,3 +8,4 @@ export type ColumnM = {
     orderColum:number
     kanban:KanbanM
 }
+

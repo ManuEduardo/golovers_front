@@ -2,8 +2,13 @@
 import CardGrup from "@/pages/groups/components/CardGrup.vue";
 import CardAddGroup from "@/pages/groups/components/CardAddGroup.vue";
 import useGroup from "@/composables/useGroup";
+import {onMounted} from "vue";
 
-const {groups} = useGroup()
+const {groups, getAllGroups} = useGroup()
+
+onMounted(async () => {
+  await getAllGroups()
+})
 </script>
 
 <template>

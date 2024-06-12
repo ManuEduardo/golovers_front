@@ -6,3 +6,11 @@ export const formatLongDate = (date: Date) => {
         month: 'long'
     }).format(date)
 }
+
+export const formatShortDate = (date: string) => {
+    return new Intl.DateTimeFormat(locale, {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+    }).format(new Date(date))
+}

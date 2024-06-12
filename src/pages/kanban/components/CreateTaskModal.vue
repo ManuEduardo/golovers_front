@@ -4,6 +4,9 @@ import InputChat from "@/pages/announcements/components/InputChat.vue";
 import TextAreaCustom from "@/vendor/components/TextAreaCustom.vue";
 import ButtonDefault from "@/vendor/components/ButtonDefault.vue";
 import ItemStudent from "@/pages/kanban/components/ItemStudent.vue";
+import useGroup from "@/composables/useGroup";
+import {onMounted} from "vue";
+import useTask from "@/composables/useTask";
 
 const show = defineModel({default: false})
 
@@ -11,31 +14,24 @@ const handleShow = () => {
   show.value = false
 }
 
+const {members, findAllMembers} = useGroup()
+const {task, submitCreateTask} = useTask()
 
-const list = [
-  {
-    id: 1,
-    name: 'Yopi',
-    code: 'U11212'
-  },
-  {
-    id: 2,
-    name: 'Yopi',
-    code: 'U11212'
-  },
-  {
-    id: 3,
-    name: 'Yopi',
-    code: 'U11212'
-  },
-]
+onMounted(async () => {
+  await findAllMembers()
+})
+
+const submitForm = ()=>{
+  submitCreateTask()
+  handleShow()
+}
 </script>
 
 <template>
   <Modal :show="show" @close="handleShow" width="sm:w-[600px] md:w-[750px] lg:w-[950px] xl:w-[1050px]">
     <div class="bg-white flex">
       <div class="w-48 bg-clear-sky">
-        <ItemStudent v-for="item in list" :key="item.id" v-bind="item"/>
+        <ItemStudent v-for="item in members" :key="item.id" :name="item.name" :code="item.email.split('@')[0]"/>
       </div>
       <div class="flex-grow p-4">
         <h2 class="text-2xl border-b border-main text-main mt-2">Actividad</h2>
@@ -43,18 +39,23 @@ const list = [
           <InputChat
               placeholder="Escriba el nombre de la actividad"
               title="Nombre de actividad:"
+              v-model="task.name"
               type="text"/>
           <div class="flex justify-end gap-5 mt-5">
             <InputChat
                 title="Fecha de finalizacion"
+                v-model="task.limitTime"
                 type="date"/>
             <InputChat
+                v-model="task.priority"
                 title="Prioridad"
                 type="number"/>
           </div>
-          <TextAreaCustom title="Descripcion:"/>
+          <TextAreaCustom
+              v-model="task.description"
+              title="Descripcion:"/>
           <div class="flex justify-end">
-            <ButtonDefault>Agregar</ButtonDefault>
+            <ButtonDefault @click="submitForm">Agregar</ButtonDefault>
           </div>
         </div>
       </div>

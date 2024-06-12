@@ -1,25 +1,24 @@
 <script setup lang="ts">
-
 import Ruleta from "@/pages/roulette/components/Ruleta.vue";
 import CardRulette from "@/pages/roulette/components/CardRulette.vue";
+import useTask from "@/composables/useTask";
+import {onMounted} from "vue";
 
-const tasks = [
-    "Buscar articulos",
-    "Buscar la Plantilla del documento",
-    "Buscar la Plantilla del documento",
-]
+const {getAllTasks} = useTask()
 
+onMounted(async ()=>{
+  await getAllTasks()
+})
 </script>
 
 <template>
 
-
   <div id="app" class="flex justify-center w-full gap-60 pt-10">
     <div class="pl-20">
-      <Ruleta class="" :items="['A', 'B', 'C', 'D']" :size="400"/>
+      <Ruleta class="" :size="400"/>
     </div>
     <div class="pr-20">
-      <CardRulette class="bg-white rounded-2xl"/>
+<!--      <CardRulette class="bg-white rounded-2xl"/>-->
     </div>
   </div>
 

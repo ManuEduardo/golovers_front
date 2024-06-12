@@ -29,16 +29,15 @@ export default () => {
     };
 
 
-    onMounted(async () => {
-        await getAllStudents()
-    })
+
 
     return {
         email,
         students,
         studentsList,
         addStudent,
-        deleteStudent
+        deleteStudent,
+        getAllStudents
     }
 
 }

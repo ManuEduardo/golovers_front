@@ -14,7 +14,7 @@ export const useAnnouncementsStore = defineStore("announcements", () => {
     const announcements: Ref<AnnouncementsM[]> = ref([])
 
     const getAllAnnouncements = async () => {
-        const id = parseInt(router.currentRoute.value.params.idGroup)
+        const id = parseInt(router.currentRoute.value.params.idGroup as string)
         announcements.value = await findAllAnnouncements(id)
     }
 

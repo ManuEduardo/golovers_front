@@ -13,7 +13,7 @@ export default () => {
     const announcement = ref({...AnnouncementsI})
 
     const router = useRouter()
-    const id = parseInt(router.currentRoute.value.params.idGroup)
+    const id = parseInt(router.currentRoute.value.params.idGroup as string)
 
     const submitCreate = async () => {
         announcement.value.studentId = authStore.authUser.id

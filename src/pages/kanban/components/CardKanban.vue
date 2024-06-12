@@ -3,6 +3,7 @@ defineProps({
   title:String,
   color:String
 })
+
 </script>
 
 <template>
@@ -17,5 +18,14 @@ defineProps({
 </template>
 
 <style scoped>
+.start{
+  background: #a1dc77;
+}
+.inProgress{
+  background: #f7d24d;
+}
 
+.done{
+  background: #fa9598;
+}
 </style>

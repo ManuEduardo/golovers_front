@@ -11,16 +11,20 @@ import InputRoundedSearch from "@/vendor/components/InputRoundedSearch.vue";
 import ContentRounded from "@/vendor/components/ContentRounded.vue";
 import {useRouter} from "vue-router";
 
-
-const {form, errors, submitCreate, show} = useGroup()
+const {form, submitCreate, show} = useGroup()
 const {email, studentsList, addStudent, deleteStudent} = useStudent()
 
 const route = useRouter()
+
+const submitGroupsAndMembers = ()=>{
+  submitCreate(studentsList.value)
+}
 
 const close = ()=>{
   show.value = false
   route.push({name:'groups'})
 }
+
 </script>
 
 <template>
@@ -76,7 +80,7 @@ const close = ()=>{
         </div>
       </div>
       <div class="text-center mt-10">
-        <ButtonDefault @click="submitCreate" class="text-xl px-6 py-4">GUARAR CAMBIOS</ButtonDefault>
+        <ButtonDefault @click="submitGroupsAndMembers" class="text-xl px-6 py-4">GUARAR CAMBIOS</ButtonDefault>
       </div>
     </div>
     <ModalDone :show="show" @close="close"/>

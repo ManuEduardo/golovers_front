@@ -8,12 +8,11 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import useTask from "@/composables/useTask";
+
+const {tasks} = useTask()
 
 const props = defineProps({
-  items: {
-    type: Array,
-    default: () => []
-  },
   size: {
     type: Number,
     default: 300
@@ -22,7 +21,7 @@ const props = defineProps({
 
 const canvas = ref(null)
 const context = ref(null)
-const arc = (2 * Math.PI) / props.items.length
+const arc = (2 * Math.PI) / tasks.value.length
 const startAngle = ref(0)
 const spinTime = ref(0)
 const spinTimeTotal = ref(0)
@@ -43,9 +42,9 @@ const drawRouletteWheel = () => {
 
   context.value.font = 'bold 14px Helvetica, Arial'
 
-  for (let i = 0; i < props.items.length; i++) {
+  for (let i = 0; i < tasks.value.length; i++) {
     const angle = startAngle.value + i * arc
-    context.value.fillStyle = getColor(i, props.items.length)
+    context.value.fillStyle = getColor(i, tasks.value.length)
 
     context.value.beginPath()
     context.value.arc(props.size / 2, props.size / 2, outsideRadius, angle, angle + arc, false)
@@ -57,7 +56,7 @@ const drawRouletteWheel = () => {
     context.value.fillStyle = 'white'
     context.value.translate(props.size / 2 + Math.cos(angle + arc / 2) * textRadius, props.size / 2 + Math.sin(angle + arc / 2) * textRadius)
     context.value.rotate(angle + arc / 2 + Math.PI / 2)
-    const text = props.items[i]
+    const text = tasks.value[i].name
     context.value.fillText(text, -context.value.measureText(text).width / 2, 0)
     context.value.restore()
   }
@@ -104,7 +103,7 @@ const stopRotateWheel = () => {
   const degrees = (startAngle.value * 180) / Math.PI + 90
   const arcd = (arc * 180) / Math.PI
   const index = Math.floor((360 - (degrees % 360)) / arcd)
-  alert(`Ganaste: ${props.items[index]}`)
+  alert(`Ganaste: ${tasks.value[index]}`)
 }
 
 const spin = () => {

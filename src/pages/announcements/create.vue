@@ -21,7 +21,7 @@ const {form, submitCreate} = useAnnouncements()
       <div class="px-10 ">
         <div class="flex border-b border-t">
           <p class="px-4 py-4">Asunto: </p>
-          <input class="focus:outline-none w-full" type="text">
+          <input class="focus:outline-none w-full" v-model="form.affair" type="text">
         </div>
         <div class="border-b pl-4 pt-6">
           <p class=" pb-6">Descripcion de anuncio:</p>
