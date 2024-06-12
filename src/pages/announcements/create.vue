@@ -21,11 +21,11 @@ const {form, submitCreate} = useAnnouncements()
       <div class="px-10 ">
         <div class="flex border-b border-t">
           <p class="px-4 py-4">Asunto: </p>
-          <input class="focus:outline-none w-full" v-model="form.affair" type="text">
+          <input class="focus:outline-none w-full font-bold" v-model="form.affair" type="text">
         </div>
         <div class="border-b pl-4 pt-6">
           <p class=" pb-6">Descripcion de anuncio:</p>
-          <textarea v-model="form.message" class="h-100 w-full border-2 pr-4 focus:outline-none"></textarea>
+          <textarea v-model="form.message" class="h-100 w-full border-2 pr-4 p-6 focus:outline-none"></textarea>
         </div>
         <RouterLink :to="{name:'announcements'}" class="p-3 flex justify-end">
           <PaperBin/>

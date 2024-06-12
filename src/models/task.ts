@@ -18,7 +18,7 @@ export const TaskI: TaskM = {
     lastUpdate: undefined,
     description: "",
     finishUserId: 0,
-    id: 0,
+    code: 0,
     kanbanId: 0,
     lastUpdated: undefined,
     limitTime: undefined,

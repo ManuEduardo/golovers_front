@@ -2,7 +2,7 @@ import type {UserM} from "@/models/user";
 
 export const createAdapterUserResp = (user): UserM => (
     {
-        id: user.id,
+        code: user.id,
         password: user.password,
         ciclo: user.ciclo,
         email: user.email,

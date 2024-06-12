@@ -19,9 +19,9 @@ export const findTasks = async (id:number) => {
     }
 }
 
-export const moveTask = async (task: TaskM) => {
+export const updateTask = async (task: TaskM) => {
     try {
-        const response = await axios.post("/task/update", task);
+        const response = await axios.put("task/update",task);
         return response.data
     } catch (error) {
         console.log(error)

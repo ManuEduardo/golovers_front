@@ -8,53 +8,88 @@ import PlusCircle from "@/components/PlusCircle.vue";
 import CardKambanPanel from "@/pages/panels/components/CardKanbanPanel.vue";
 import ButtonDefault from "@/vendor/components/ButtonDefault.vue";
 import RulleteSvg from "@/vendor/svg/RulleteSvg.vue";
-import {computed, onMounted} from "vue";
+import {computed, onMounted, type Ref, ref} from "vue";
 import useGroup from "@/composables/useGroup";
 import useKanban from "@/composables/useKanban";
 import useColumn from "@/composables/useColumn";
+import type {TaskM} from "@/models/task";
 
 const props = defineProps({
-  idGroup: Number
+  idGroup: String
 })
 
 const {members, findAllMembers} = useGroup()
-
-onMounted(async()=>{
+const {getKanBanById, getScores} = useKanban()
+const scores = ref([])
+onMounted(async () => {
   await findAllMembers()
+  /*const data = await getScores(props.idGroup)
+  scores.value = data.map(item => {
+    const student = members.value.find((m) => m.id == item.totalPriority)
+    return {
+      student: `${student.name} ${student.lastName}`,
+      score: item.studentId
+    }
+  })*/
 })
 
 
-const {getKanBanById, kanban} = useKanban()
-const {columns} = useColumn()
+const doTasks: Ref<TaskM[]> = ref([])
+const doneTasks: Ref<TaskM[]> = ref([])
 
-
-onMounted(async ()=>{
+onMounted(async () => {
   const response = await getKanBanById(props.idGroup)
-  console.log(response)
-  kanban.value = response.data
-  columns.value = response.columns
+  doTasks.value = response.columns[0].tasks
+  doneTasks.value = response.columns[2].tasks
 })
-
-const doList = computed(()=> columns.value[0].tasks)
-const doneList = computed(()=> columns.value[2].tasks)
 
 
 const links = [
-    {
-  id: 1,
-  name: "Whatsapp",
-  link: "https://www.youtube.com/watch?v=IuifpGl2sPk"
-}, {
-  id: 2,
-  name: "Canvas",
-  link: "https://www.youtube.com/watch?v=IuifpGl2sPk"
-}, {
-  id: 3,
-  nombre: "Link Imagenes",
-  link: "https://www.youtube.com/watch?v=IuifpGl2sPk"
-}]
+  {
+    id: 1,
+    name: "Whatsapp",
+    link: "https://chat.whatsapp.com/CASpSdcoo7h6GBkQ6IoLlz"
+  }, {
+    id: 2,
+    name: "Canvas",
+    link: "https://chat.whatsapp.com/CASpSdcoo7h6GBkQ6IoLlz"
+  }, {
+    id: 3,
+    nombre: "Link Imagenes",
+    link: "https://chat.whatsapp.com/CASpSdcoo7h6GBkQ6IoLlz"
+  }]
 
+const doList = [
+  {
+    id: 1,
+    task: "Redaccion Introduccion"
 
+  },
+  {
+    id: 2,
+    task: "Redaccion Desarrollo"
+  },
+  {
+    id: 3,
+    task: "Redaccion Cierre"
+  }
+]
+
+const doneList = [
+  {
+    id: 1,
+    task: "Redaccion Introduccion"
+
+  },
+  {
+    id: 2,
+    task: "Redaccion Desarrollo"
+  },
+  {
+    id: 2,
+    task: "Redaccion Cierre"
+  }
+]
 </script>
 
 <template>
@@ -70,30 +105,47 @@ const links = [
     <CardGroupControl class="w-112">
       <template #title> Contribucion de Estudiantes</template>
       <div class="grid gap-4">
-        <Seeparticipation v-for="item in members" :key="item.id" :name="`${item.name} ${item.lastName}`"
+        <Seeparticipation v-for="(item,idx) in members" :key="idx" :name="`${item.name} ${item.lastName}`"
                           :score="50"/>
       </div>
     </CardGroupControl>
 
-    <CardGroupControl class="w-full">
+<!--    <CardGroupControl class="w-full">
       <template #title>TABLERO KAMBAN</template>
       <div class="flex gap-10">
         <CardKambanPanel class="w-1/2">
           <template #title>Pendiente</template>
           <div class="flex-col">
-<!--            <ItemTask v-for="(item, idx) in doList" :key="idx" :task="item.name"/>-->
+            <ItemTask v-for="(item, idx) in doTasks" :key="idx" :task="item.name"/>
           </div>
         </CardKambanPanel>
 
         <CardKambanPanel class="w-1/2">
           <template #title>Completado</template>
           <div class="flex-col">
-<!--            <ItemTask v-for="item in doneList" :key="item.id " :task="item.name"/>-->
+            <ItemTask v-for="item in doneTasks" :key="item.id " :task="item.name"/>
+          </div>
+        </CardKambanPanel>
+      </div>
+    </CardGroupControl>-->
+    <CardGroupControl class="w-full">
+      <template #title>TABLERO KAMBAN</template>
+      <div class="flex gap-10">
+        <CardKambanPanel class="w-1/2">
+          <template #title>Pendiente</template>
+          <div class="flex-col">
+            <ItemTask v-for="item in doList" :key="item.id " :task="item.task"/>
+          </div>
+        </CardKambanPanel>
+
+        <CardKambanPanel class="w-1/2">
+          <template #title>Completado</template>
+          <div class="flex-col">
+            <ItemTask v-for="item in doneList" :key="item.id " :task="item.task"/>
           </div>
         </CardKambanPanel>
       </div>
     </CardGroupControl>
-
 
     <div class="flex justify-between w-full">
       <CardGroupControl class="w-100">

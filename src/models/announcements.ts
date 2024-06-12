@@ -3,13 +3,13 @@ export type AnnouncementsM = {
     id: number,
     studentId: number,
     groupId: number,
-    affair: number,
+    affair: string,
     message: string,
     dateTime: string
 }
 
 export const AnnouncementsI: AnnouncementsM = {
-    affair: 0,
-    dateTime: "", groupId: 0, id: 0, message: "", studentId: 0
+    affair: "",
+    dateTime: "", groupId: 0, code: 0, message: "", studentId: 0
 }
 

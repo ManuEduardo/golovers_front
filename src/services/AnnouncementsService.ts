@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const findAllAnnouncements = async (id: number) => {
     try {
-        const response = await axios.get(`notice/list/${id}`)
+        const response = await axios.get(`notice/group/${id}`)
         return response.data
     } catch (e) {
         console.log(e)

@@ -1,4 +1,4 @@
-import {useAnnouncementsStore} from "@/stores/Announcements";
+import {useAnnouncementsStore} from "@/stores/AnnouncementsStore";
 import {storeToRefs} from "pinia";
 import {onMounted, ref} from "vue";
 import {AnnouncementsI} from "@/models/announcements";
@@ -16,14 +16,15 @@ export default () => {
     const id = parseInt(router.currentRoute.value.params.idGroup as string)
 
     const submitCreate = async () => {
-        announcement.value.studentId = authStore.authUser.id
-        announcement.value.groupId = id
-        await registerAnnouncements(announcement.value)
+        if (announcement.value.message) {
+            announcement.value.studentId = authStore.authUser.id
+            announcement.value.groupId = id
+            await registerAnnouncements(announcement.value)
+        }
     }
 
     onMounted(async () => {
         await getAllAnnouncements()
-        console.log(announcements.value)
     })
 
     return {

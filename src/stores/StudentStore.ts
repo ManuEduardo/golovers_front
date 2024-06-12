@@ -13,9 +13,7 @@ export const useStudentStore =
         };
 
         const findStudentByEmail = (email: string) => {
-            return students.value.find(item => {
-                return item.email === email
-            })
+            return students.value.find(item => item.email === email)
         }
 
         const countStudents = () => 0;

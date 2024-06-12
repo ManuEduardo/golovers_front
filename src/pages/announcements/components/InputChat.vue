@@ -21,7 +21,25 @@ defineExpose({
 </script>
 
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col item gap-4">
+    <label :for="id" class="text-md ml-2">
+      {{ title }}
+    </label>
+    <div class="relative max-w-lg flex items-center shadow bg-gray-200 rounded-2xl">
+      <input
+          ref="inputRef"
+          :id="id"
+          class="w-full py-3 px-3 placeholder-gray-400 rounded-2xl focus:outline-none bg-transparent focus:bg-sky-100/20 focus:shadow-md"
+          v-model="model"
+          :placeholder="placeholder"
+          :type="type"
+      />
+      <slot/>
+
+    </div>
+  </div>
+
+<!--  <div class="flex flex-col gap-2">
     <label :for="id" class="text-md ml-2">
       {{ title }}
     </label>
@@ -37,7 +55,8 @@ defineExpose({
       <slot/>
 
     </div>
-  </div>
+  </div>-->
+
 </template>
 
 <style scoped>

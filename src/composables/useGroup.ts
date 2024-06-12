@@ -22,20 +22,17 @@ export default () => {
         if (!noErrors.value) return*/
         await registerGroup(form.value).then((response) => {
             if (response === undefined) return
+            show.value = true
             if (students.length === 0) return
             for (let student of students) {
                 const member: MenberM = {idStudent: student.id, code: response.code}
-                console.log(member)
                 submitNewMember(member)
             }
         })
     }
 
     const submitNewMember = async (member: MenberM) => {
-        await newMember(member).then((response) => {
-            if (response === undefined) return
-            //show.value = true
-        })
+        await newMember(member)
     }
 
     const findAllMembers = async () => {

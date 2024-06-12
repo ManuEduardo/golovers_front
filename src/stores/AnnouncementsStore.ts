@@ -20,6 +20,7 @@ export const useAnnouncementsStore = defineStore("announcements", () => {
 
     const registerAnnouncements = async (form: AnnouncementsM) => {
         await createAnnouncements(form)
+        router.push({name:'announcements'})
     }
 
     return {

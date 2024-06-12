@@ -134,7 +134,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    const {isAuth} = useAuthStore()
+    /*const {isAuth} = useAuthStore()
     if (to.matched[0].name === 'login') {
         if (isAuth) {
             next({name: 'groups'})
@@ -145,7 +145,8 @@ router.beforeEach((to, from, next) => {
         next({name: 'login'})
     } else {
         next()
-    }
+    }*/
+    next()
 })
 
 export default router

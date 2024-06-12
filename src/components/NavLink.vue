@@ -10,7 +10,7 @@ defineProps({
 <template>
   <AppLink
       class="text-center font-bold  py-4 block"
-      inactive-class="fill-white text-white"
+      inactive-class="fill-white text-white shadow-xl"
       active-class="bg-white text-main fill-main"
   >
     <component :is="component" class="w-10 mx-auto mb-2"/>

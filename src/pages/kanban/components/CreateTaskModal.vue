@@ -7,22 +7,23 @@ import ItemStudent from "@/pages/kanban/components/ItemStudent.vue";
 import useGroup from "@/composables/useGroup";
 import {onMounted} from "vue";
 import useTask from "@/composables/useTask";
+import useColumn from "@/composables/useColumn";
 
 const show = defineModel({default: false})
-
+const column = defineModel('column',{default: []})
 const handleShow = () => {
   show.value = false
 }
 
 const {members, findAllMembers} = useGroup()
 const {task, submitCreateTask} = useTask()
-
 onMounted(async () => {
   await findAllMembers()
 })
 
-const submitForm = ()=>{
-  submitCreateTask()
+const submitForm = async()=>{
+  await submitCreateTask()
+  column.value.tasks.push(task.value)
   handleShow()
 }
 </script>
@@ -48,7 +49,7 @@ const submitForm = ()=>{
                 type="date"/>
             <InputChat
                 v-model="task.priority"
-                title="Prioridad"
+                title="Puntaje"
                 type="number"/>
           </div>
           <TextAreaCustom

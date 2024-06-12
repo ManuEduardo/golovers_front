@@ -6,7 +6,7 @@ import UserCard from "@/components/UserCard.vue";
 
 <template>
   <div class="h-screen overflow-hidden flex">
-    <NavBar/>
+    <NavBar/> 
     <div class="flex-grow ml-20 h-full flex flex-col bg-white">
       <div class="flex items-center h-20 flex-shrink-0 justify-between">
         <div class="flex-grow px-7 inline-flex items-center">

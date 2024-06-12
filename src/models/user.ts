@@ -12,7 +12,7 @@ export type UserM = {
 
 export const UserI: UserM = {
     ciclo: 0, email: "", lastName: "", name: "", phone: "",
-    id: 0, password: ""
+    code: 0, password: ""
 }
 
 
