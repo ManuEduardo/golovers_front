@@ -3,7 +3,7 @@
 
 <template>
 
-  <div class="bg-white px-4 py-4 rounded-lg shadow-lg">
+  <div class="bg-white px-6 py-6 rounded-lg shadow">
     <div class="pb-4">
       <p class="text-xl font-bold uppercase">
         <slot name="title"/>

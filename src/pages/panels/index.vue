@@ -95,14 +95,14 @@ const doneList = [
 <template>
 
   <div class="flex flex-wrap gap-4">
-    <CardGroupControl class="flex-grow">
+    <CardGroupControl class="flex-grow hover:bg-slate-100 transition">
       <template #title>Integrantes</template>
       <div class="grid gap-4">
-        <ItemUser v-for="item in members" :key="item.id" :name="`${item.name} ${item.lastName}`"/>
+        <ItemUser v-for="item in members" :key="item.id" :name="`${item.name} ${item.lastName} - ${(item.email.split('@')[0].toLocaleUpperCase())}`"/>
       </div>
     </CardGroupControl>
 
-    <CardGroupControl class="w-112">
+    <CardGroupControl class="w-112 hover:bg-slate-100 transition">
       <template #title> Contribucion de Estudiantes</template>
       <div class="grid gap-4">
         <Seeparticipation v-for="(item,idx) in members" :key="idx" :name="`${item.name} ${item.lastName}`"
@@ -128,7 +128,7 @@ const doneList = [
         </CardKambanPanel>
       </div>
     </CardGroupControl>-->
-    <CardGroupControl class="w-full">
+    <CardGroupControl class="w-full hover:bg-slate-100 transition">
       <template #title>TABLERO KAMBAN</template>
       <div class="flex gap-10">
         <CardKambanPanel class="w-1/2">
@@ -138,7 +138,7 @@ const doneList = [
           </div>
         </CardKambanPanel>
 
-        <CardKambanPanel class="w-1/2">
+        <CardKambanPanel class="w-1/2 ">
           <template #title>Completado</template>
           <div class="flex-col">
             <ItemTask v-for="item in doneList" :key="item.id " :task="item.task"/>
@@ -148,19 +148,19 @@ const doneList = [
     </CardGroupControl>
 
     <div class="flex justify-between w-full">
-      <CardGroupControl class="w-100">
+      <CardGroupControl class="w-100 hover:bg-slate-100 transition">
         <template #title>LINKS DE GRUPO</template>
         <div class="p-4">
           <ItemLink v-for="item in links" :key="item.id" :name="item.name" :link="item.link"/>
         </div>
       </CardGroupControl>
-      <CardGroupControl class="w-100">
+      <CardGroupControl class="w-100 hover:bg-slate-100 transition">
         <template #title>ANUNCIOS</template>
         <div class="bg-gray-100 p-4 rounded-xl">
           <PlusCircle/>
         </div>
       </CardGroupControl>
-      <CardGroupControl class="w-100">
+      <CardGroupControl class="w-100 hover:bg-slate-100 transition  ">
         <template #title>ASIGNACION DE ACTIVIDADES</template>
         <div class="p-4 flex justify-between items-center">
           <RulleteSvg class="w-30 h-30 P-5"/>

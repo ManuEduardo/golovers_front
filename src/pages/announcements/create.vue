@@ -14,7 +14,7 @@ const {form, submitCreate} = useAnnouncements()
         <ButtonDefault @click="submitCreate" class=" bg-main px-8 py-3 rounded-md flex">
           ANUNCIAR
           <p class="absolute ml-[102px] mt-[-12px] h-12 w-2 border-r-2"></p>
-          <Down class="ml-10 mt-1 mr-[-20px] "/>
+          <Down class="ml-10 mt-1 mr-[-20px] -rotate-90"/>
         </ButtonDefault>
 
       </div>
