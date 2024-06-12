@@ -8,12 +8,11 @@ export default () => {
 
     const store = useTaskStore()
     const {tasks} = storeToRefs(store)
-    const {addTask, getAllTasksByKanban, moveTask} = store
+    const {addTask, getAllTasksByKanban, moveTask, moveFinishTask} = store
 
     const task = ref({...TaskI})
     const submitCreateTask = async () => {
         task.value = await addTask(task.value)
-
     }
 
     const getAllTasks = async ()=>{
@@ -24,11 +23,16 @@ export default () => {
         await moveTask(task)
     }
 
+    const moveTaskFinish = async (task: TaskM)=>{
+        await moveFinishTask(task)
+    }
+
     return {
         tasks,
         task,
         submitCreateTask,
         getAllTasks,
-        moveTaskColumn
+        moveTaskColumn,
+        moveTaskFinish
     }
 }

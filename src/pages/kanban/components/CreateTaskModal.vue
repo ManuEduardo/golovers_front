@@ -8,6 +8,7 @@ import useGroup from "@/composables/useGroup";
 import {onMounted} from "vue";
 import useTask from "@/composables/useTask";
 import useColumn from "@/composables/useColumn";
+import {TaskI} from "@/models/task";
 
 const show = defineModel({default: false})
 const column = defineModel('column',{default: []})
@@ -25,6 +26,7 @@ const submitForm = async()=>{
   await submitCreateTask()
   column.value.tasks.push(task.value)
   handleShow()
+  task.value = {...TaskI}
 }
 </script>
 

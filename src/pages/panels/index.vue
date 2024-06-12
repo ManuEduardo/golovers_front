@@ -21,26 +21,39 @@ const props = defineProps({
 const {members, findAllMembers} = useGroup()
 const {getKanBanById, getScores} = useKanban()
 const scores = ref([])
-onMounted(async () => {
-  await findAllMembers()
-  /*const data = await getScores(props.idGroup)
-  scores.value = data.map(item => {
-    const student = members.value.find((m) => m.id == item.totalPriority)
-    return {
-      student: `${student.name} ${student.lastName}`,
-      score: item.studentId
-    }
-  })*/
-})
-
 
 const doTasks: Ref<TaskM[]> = ref([])
 const doneTasks: Ref<TaskM[]> = ref([])
+
+const assignedColorScore = ref([])
 
 onMounted(async () => {
   const response = await getKanBanById(props.idGroup)
   doTasks.value = response.columns[0].tasks
   doneTasks.value = response.columns[2].tasks
+
+  await findAllMembers()
+
+  const data = await getScores(response.data.id)
+  console.log(data)
+
+  let sum = 0
+  for (let c of response.columns) {
+    sum += c.tasks.reduce((accumulator, task) => accumulator + task.priority, 0);
+  }
+
+  let count = members.value.length;
+  let aux = sum / count
+  scores.value = members.value.map(m => {
+    const score = data.find(d => d.studentId === m.id)
+    const priority = score ? score.totalPriority : 0
+    const por = priority / aux
+    return {
+      student: `${m.name} ${m.lastName}`,
+      score: priority,
+      por: por
+    }
+  })
 })
 
 
@@ -90,6 +103,8 @@ const doneList = [
     task: "Redaccion Cierre"
   }
 ]
+
+
 </script>
 
 <template>
@@ -105,29 +120,29 @@ const doneList = [
     <CardGroupControl class="w-112">
       <template #title> Contribucion de Estudiantes</template>
       <div class="grid gap-4">
-        <Seeparticipation v-for="(item,idx) in members" :key="idx" :name="`${item.name} ${item.lastName}`"
-                          :score="50"/>
+        <Seeparticipation v-for="(item,idx) in scores" :key="idx" :name="item.student"
+                          :score="item.score" :por="item.por"/>
       </div>
     </CardGroupControl>
 
-<!--    <CardGroupControl class="w-full">
-      <template #title>TABLERO KAMBAN</template>
-      <div class="flex gap-10">
-        <CardKambanPanel class="w-1/2">
-          <template #title>Pendiente</template>
-          <div class="flex-col">
-            <ItemTask v-for="(item, idx) in doTasks" :key="idx" :task="item.name"/>
-          </div>
-        </CardKambanPanel>
+    <!--    <CardGroupControl class="w-full">
+          <template #title>TABLERO KAMBAN</template>
+          <div class="flex gap-10">
+            <CardKambanPanel class="w-1/2">
+              <template #title>Pendiente</template>
+              <div class="flex-col">
+                <ItemTask v-for="(item, idx) in doTasks" :key="idx" :task="item.name"/>
+              </div>
+            </CardKambanPanel>
 
-        <CardKambanPanel class="w-1/2">
-          <template #title>Completado</template>
-          <div class="flex-col">
-            <ItemTask v-for="item in doneTasks" :key="item.id " :task="item.name"/>
+            <CardKambanPanel class="w-1/2">
+              <template #title>Completado</template>
+              <div class="flex-col">
+                <ItemTask v-for="item in doneTasks" :key="item.id " :task="item.name"/>
+              </div>
+            </CardKambanPanel>
           </div>
-        </CardKambanPanel>
-      </div>
-    </CardGroupControl>-->
+        </CardGroupControl>-->
     <CardGroupControl class="w-full">
       <template #title>TABLERO KAMBAN</template>
       <div class="flex gap-10">

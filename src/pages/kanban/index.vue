@@ -18,7 +18,7 @@ const props = defineProps({
 
 const {getKanBanById, kanban} = useKanban()
 const {columns} = useColumn()
-const {moveTaskColumn} = useTask()
+const {moveTaskColumn, moveTaskFinish} = useTask()
 const {members, findAllMembers} = useGroup()
 onMounted(async () => {
   await findAllMembers()
@@ -45,7 +45,11 @@ const handleDrop = async (idx: number) => {
     task.columnKanbanId = columns.value[idx].id
     columns.value[idxColumnOrigin].tasks.splice(idxTask, 1);
     columns.value[idx].tasks.push(task)
-    await moveTaskColumn({id: task.id, oderColumn: idx + 1})
+    if (idx > 2) {
+      await moveTaskColumn({id: task.id, oderColumn: idx + 1})
+    }else{
+      await moveTaskFinish({id: task.id, columnKanbanId: task.columnKanbanId})
+    }
   }
   draggedItem.value = null;
 };
@@ -57,12 +61,12 @@ const handleEnd = () => {
 
 const {show, handleShow} = useShow()
 
-const columnTitleSpanish = ['Pendiente', 'En Proreso', 'Hecho']
+const columnTitleSpanish = ['Pendiente', 'En Proceso', 'Hecho']
 const columnColorClass = ['start', 'inProgress', 'done']
 
 
 const getNameStudent = (id: number) => {
-  const student =  members.value.find(item=>item.id === id)
+  const student = members.value.find(item => item.id === id)
   return `${student.name} ${student.lastName}`
 }
 </script>
@@ -81,7 +85,7 @@ const getNameStudent = (id: number) => {
                         :draggable="true"
                         @dragstart="handleStart(idxTask, idxColumn)" @dragend="handleEnd"
                         :color="columnColorClass[idxColumn]"
-                        :student="getNameStudent(1)"
+                        :student="getNameStudent(task.assignedUserId)"
             />
           </div>
         </CardKanban>

@@ -11,7 +11,12 @@ export const findAllAnnouncements = async (id: number) => {
 
 export const createAnnouncements = async (form) => {
     try {
-        const response = await axios.post(`notice/create`, form)
+        const response = await axios.post(`notice/create`, {
+            studentId: form.studentId,
+            groupId: form.groupId,
+            message: form.message,
+            affair: form.affair,
+        })
         return response.data
     } catch (e) {
         console.log(e)

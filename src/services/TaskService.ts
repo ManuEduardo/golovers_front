@@ -27,3 +27,13 @@ export const updateTask = async (task: TaskM) => {
         console.log(error)
     }
 }
+
+export const updateFinish = async (task: TaskM) => {
+    console.log(task)
+    try {
+        const response = await axios.put("task/finish",task);
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}

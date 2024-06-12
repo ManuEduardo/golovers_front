@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 import {ref, type Ref} from "vue";
 import type {TaskM} from "@/models/task";
-import {createTask, findTasks, updateTask} from "@/services/TaskService";
+import {createTask, findTasks, updateFinish, updateTask} from "@/services/TaskService";
 import {useAuthStore} from "@/stores/AuthStore";
 import {useRouter} from "vue-router";
 
@@ -13,9 +13,11 @@ export const useTaskStore = defineStore("task", () => {
     const addTask = async (task: TaskM) => {
         const id = parseInt(router.currentRoute.value.params.idKanban as string)
         const form: TaskM = {
-            ...task,
+            name: task.name,
+            description: task.description,
+            priority: task.priority,
+            limitTime: `${task.limitTime}T00:00:00`,
             assignedUserId: authStore.authUser.id,
-            finishUserId: authStore.authUser.id,
             kanbanId: id
         }
         return await createTask(form)
@@ -30,10 +32,15 @@ export const useTaskStore = defineStore("task", () => {
         await updateTask(task)
     }
 
+    const moveFinishTask = async (task: TaskM)=>{
+        await updateFinish({id:task.id, columnKanbanId: task.columnKanbanId, finishUserId: authStore.authUser.id})
+    }
+
     return {
         tasks,
         addTask,
         getAllTasksByKanban,
-        moveTask
+        moveTask,
+        moveFinishTask
     }
 })

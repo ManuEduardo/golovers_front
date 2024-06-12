@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 import {type Ref, ref} from "vue";
 import type {KanbanM} from "@/models/kanban";
-import {findKanbanByGroupId, findKanbans, findScoreStudents} from "@/services/KanbanService";
+import {findFive, findKanbanByGroupId, findKanbans, findScoreStudents} from "@/services/KanbanService";
 
 export const useKanbanStore = defineStore("kanban", () => {
     const kanbans: Ref<KanbanM[]> = ref([])
@@ -22,6 +22,7 @@ export const useKanbanStore = defineStore("kanban", () => {
             console.log(e)
         }
     }
+
 
     const getScores = async (id: number) => {
         try{
